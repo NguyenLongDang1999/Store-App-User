@@ -1,6 +1,7 @@
 import { defineConfig } from 'windicss/helpers'
 
 export default defineConfig({
+    attributify: true,
     theme: {
         extend: {
             fontFamily: {
@@ -9,6 +10,7 @@ export default defineConfig({
         }
     },
     plugins: [
-        require('windicss/plugin/forms')
+        require('windicss/plugin/forms'),
+        require('windicss/plugin/line-clamp')
     ]
 })

@@ -8,9 +8,6 @@
         "editor.defaultFormatter": "dbaeumer.vscode-eslint",
         "editor.autoClosingBrackets": "always"
     },
-    "[markdown]": {
-        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-    },
     // JSON
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
@@ -48,8 +45,5 @@
         "touchless",
         "triggerer"
     ],
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "editor.tokenColorCustomizations": {
-        "comments": "#98C379"
-    }
+    "typescript.tsdk": "node_modules/typescript/lib"
 }
