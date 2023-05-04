@@ -1,8 +1,4 @@
 export default {
-    User: {
-        Login: 'Đăng nhập',
-        Register: 'Đăng ký'
-    },
     Search: {
         Product: 'Tìm kiếm sản phẩm'
     },
