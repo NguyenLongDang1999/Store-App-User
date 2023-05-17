@@ -10,7 +10,7 @@
         "lint": "eslint . -c .eslintrc.js --fix --ext .ts,.js,.vue,.tsx,.jsx"
     },
     "devDependencies": {
-        "@nuxt/devtools": "^0.4.1",
+        "@nuxt/devtools": "^0.4.6",
         "@nuxt/image-edge": "1.0.0-28020728.5df24eb",
         "@nuxtjs/google-fonts": "^3.0.0",
         "@nuxtjs/i18n": "8.0.0-beta.11",
@@ -28,8 +28,5 @@
         "nuxt-icon": "^0.3.3",
         "nuxt-windicss": "^2.6.1",
         "sass": "^1.62.0"
-    },
-    "dependencies": {
-        "vue3-carousel": "^0.3.1"
     }
 }
