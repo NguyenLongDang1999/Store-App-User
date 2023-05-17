@@ -35,6 +35,25 @@ export default defineNuxtConfig({
         ],
         lazy: true,
         langDir: 'locales',
-        defaultLocale: 'vi'
+        defaultLocale: 'vi',
+        customRoutes: 'config',
+        pages: {
+            'categories/index': {
+                en: '/categories',
+                vi: '/danh-muc'
+            },
+            'shop': {
+                en: '/shop',
+                vi: '/cua-hang'
+            },
+            'about': {
+                en: '/about',
+                vi: '/gioi-thieu'
+            },
+            'contact': {
+                en: '/contact',
+                vi: '/lien-he'
+            }
+        }
     }
 })

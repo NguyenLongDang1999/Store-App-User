@@ -1,3 +1,6 @@
 <template>
-    <TheSlider />
+    <div>
+        <HomeTheSlider />
+        <LazyHomeTheCategory />
+    </div>
 </template>

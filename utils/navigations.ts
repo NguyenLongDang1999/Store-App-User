@@ -15,7 +15,7 @@ export default [
     {
         title: 'Category',
         name: 'category',
-        to: 'danh-muc-moi'
+        to: 'danh-muc'
     },
     {
         title: 'About',
