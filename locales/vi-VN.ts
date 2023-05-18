@@ -16,6 +16,7 @@ export default {
         Total: 'Tổng cộng'
     },
     Category: {
+        List: 'Danh sách danh mục',
         Popular: 'Danh mục phổ biến'
     },
     Product: {
@@ -24,5 +25,8 @@ export default {
     },
     Error: {
         PageNotFound: 'Page Not Found'
+    },
+    WishList: {
+        Product: 'Sản phẩm yêu thích'
     }
 }

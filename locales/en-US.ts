@@ -4,6 +4,6 @@ export default {
         Register: 'Register'
     },
     Search: {
-        Product: 'Search Product'
+        Product: 'Search BaseProduct'
     }
 }

@@ -4,12 +4,25 @@ export default defineNuxtConfig({
         '@nuxt/devtools',
         '@nuxt/image-edge',
         '@nuxtjs/i18n',
+        '@nuxtjs/tailwindcss',
         '@nuxtjs/google-fonts',
         '@vueuse/nuxt',
-        'nuxt-windicss',
-        'nuxt-icon'
+        'nuxt-icon',
+        [
+            '@pinia/nuxt', {
+                autoImports: ['defineStore', 'storeToRefs']
+            }
+        ]
     ],
     app: {
+        head: {
+            // script: [
+            //     {
+            //         src: '/vendor/preline/dist/preline.js',
+            //         defer: true
+            //     }
+            // ]
+        },
         pageTransition: {
             name: 'page',
             mode: 'out-in'
@@ -19,7 +32,7 @@ export default defineNuxtConfig({
         prefetch: true,
         preconnect: true,
         families: {
-            'IBM Plex Sans': [400, 500, 600, 700]
+            'Public Sans': [300, 400, 500, 600, 700]
         }
     },
     i18n: {
@@ -55,5 +68,8 @@ export default defineNuxtConfig({
                 vi: '/lien-he'
             }
         }
+    },
+    imports: {
+        dirs: ['stores']
     }
 })
