@@ -4,9 +4,13 @@
         <TheLayoutHeaderNavbar />
     </header>
 
+    <main>
+        <slot />
+    </main>
+
     <LazyTheLayoutCart />
     <LazyTheLayoutMenu />
+    <LazyTheLayoutSearch />
     <LazyTheLayoutCategory />
-
     <TheLayoutToolbarMenu />
 </template>

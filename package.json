@@ -15,6 +15,7 @@
         "@nuxtjs/google-fonts": "^3.0.0",
         "@nuxtjs/i18n": "8.0.0-beta.11",
         "@nuxtjs/tailwindcss": "^6.7.0",
+        "@pinia/nuxt": "^0.4.11",
         "@types/node": "^18.16.12",
         "@typescript-eslint/eslint-plugin": "^5.59.6",
         "@typescript-eslint/parser": "^5.59.6",
@@ -30,7 +31,7 @@
         "sass": "^1.62.1"
     },
     "dependencies": {
-        "@pinia/nuxt": "^0.4.11",
-        "preline": "^1.8.0"
+        "preline": "^1.8.0",
+        "vue3-carousel": "^0.3.1"
     }
 }

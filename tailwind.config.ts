@@ -8,6 +8,7 @@ export default <Partial<Config>>{
     theme: {
         extend: {
             screens: {
+                xs: '450px',
                 sm: '576px',
                 md: '768px',
                 lg: '992px',

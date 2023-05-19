@@ -11,7 +11,7 @@ defineProps<Props>()
 </script>
 
 <template>
-    <div class="flex flex-col">
+    <div class="flex flex-col cursor-pointer">
         <Icon
             :name="name"
             :size="size"

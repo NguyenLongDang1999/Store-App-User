@@ -46,10 +46,28 @@ import navItems from '~~/utils/navigations'
                     <div class="md:hidden block">
                         <ul class="flex justify-end gap-6">
                             <li class="relative">
-                                <TheIconBadge
-                                    name="bx:user"
-                                    size="28"
-                                />
+                                <TheTooltip
+                                    :title="$t('Auth.Name')"
+                                    placement="bottom"
+                                >
+                                    <TheIconBadge
+                                        name="bx:user"
+                                        size="28"
+                                    />
+                                </TheTooltip>
+                            </li>
+
+                            <li class="relative">
+                                <TheTooltip
+                                    :title="$t('Search.Product')"
+                                    placement="bottom"
+                                >
+                                    <TheIconBadge
+                                        name="bx:search"
+                                        size="28"
+                                        data-hs-overlay="#hs-search"
+                                    />
+                                </TheTooltip>
                             </li>
 
                             <li class="relative">
@@ -60,7 +78,7 @@ import navItems from '~~/utils/navigations'
                                     <TheIconBadge
                                         name="bx:heart"
                                         size="28"
-                                        count="4"
+                                        :count="4"
                                     />
                                 </TheTooltip>
                             </li>
@@ -73,7 +91,7 @@ import navItems from '~~/utils/navigations'
                                     <TheIconBadge
                                         name="bx:basket"
                                         size="28"
-                                        count="3"
+                                        :count="3"
                                         data-hs-overlay="#hs-overplay-cart"
                                     />
                                 </TheTooltip>
@@ -81,14 +99,13 @@ import navItems from '~~/utils/navigations'
 
                             <li class="relative">
                                 <TheTooltip
-                                    :title="$t('Cart.Title')"
+                                    :title="$t('Menu.Name')"
                                     placement="bottom"
                                 >
                                     <TheIconBadge
                                         name="bx:list-ul"
                                         size="28"
-                                        count="3"
-                                        class="cursor-pointer"
+                                        :count="3"
                                         data-hs-overlay="#hs-overplay-menu"
                                         aria-controls="hs-overplay-menu"
                                         aria-label="Toggle menu"

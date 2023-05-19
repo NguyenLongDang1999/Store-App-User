@@ -8,7 +8,7 @@ const search = ref<string>('')
     <div class="border-b border-solid border-b-[#eee]">
         <TheContainer>
             <div class="grid grid-cols-12 gap-4 items-center">
-                <div class="md:col-span-3 col-span-6">
+                <div class="md:col-span-3 sm:col-span-6 sm:justify-start justify-center flex col-span-12">
                     <div class="py-[25px]">
                         <NuxtLink to="/">
                             <NuxtImg
@@ -21,7 +21,7 @@ const search = ref<string>('')
                     </div>
                 </div>
 
-                <div class="md:col-span-6 col-span-6">
+                <div class="md:col-span-6 sm:col-span-6 sm:block hidden">
                     <BaseFormSearch v-model="search" />
                 </div>
 
@@ -42,7 +42,7 @@ const search = ref<string>('')
                                 <TheIconBadge
                                     name="bx:heart"
                                     size="28"
-                                    count="4"
+                                    :count="4"
                                 />
                             </TheTooltip>
                         </li>
@@ -55,7 +55,7 @@ const search = ref<string>('')
                                 <TheIconBadge
                                     name="bx:basket"
                                     size="28"
-                                    count="3"
+                                    :count="3"
                                     data-hs-overlay="#hs-overplay-cart"
                                 />
                             </TheTooltip>
