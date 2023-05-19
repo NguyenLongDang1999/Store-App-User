@@ -2,9 +2,6 @@ import type { Config } from 'tailwindcss'
 import { blue } from 'tailwindcss/colors'
 
 export default <Partial<Config>>{
-    content: [
-        'node_modules/preline/dist/*.js'
-    ],
     theme: {
         extend: {
             screens: {
@@ -22,8 +19,5 @@ export default <Partial<Config>>{
                 sans: ['"Public Sans"']
             }
         }
-    },
-    plugins: [
-        require('preline/plugin')
-    ]
+    }
 }

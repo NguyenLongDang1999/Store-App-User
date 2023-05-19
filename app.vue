@@ -1,9 +1,3 @@
-<script setup lang="ts">
-
-// ** Lifecycle
-onMounted(() => import('preline'))
-</script>
-
 <template>
     <Head>
         <Title>Nuxivy</Title>

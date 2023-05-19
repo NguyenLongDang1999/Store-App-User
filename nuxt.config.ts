@@ -15,6 +15,10 @@ export default defineNuxtConfig({
             }
         ]
     ],
+    css: ['maz-ui/css/main.css'],
+    build: {
+        transpile: ['maz-ui']
+    },
     app: {
         pageTransition: {
             name: 'page',

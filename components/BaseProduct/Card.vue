@@ -36,11 +36,13 @@ defineProps<Props>()
                             />
                         </li>
 
-                        <li class="bg-white border border-solid border-gray-200 w-8 h-8 leading-7 cursor-pointer text-center rounded">
+                        <li
+                            class="bg-white border border-solid border-gray-200 w-8 h-8 leading-7 cursor-pointer text-center rounded"
+                            data-hs-overlay="#hs-product-modal"
+                        >
                             <Icon
                                 name="bx:show"
                                 size="17"
-                                data-hs-overlay="#hs-product-modal"
                             />
                         </li>
                     </ul>

@@ -1,12 +1,12 @@
 lockfileVersion: '6.0'
 
 dependencies:
-  preline:
-    specifier: ^1.8.0
-    version: 1.8.0
-  vue3-carousel:
-    specifier: ^0.3.1
-    version: 0.3.1(vue@3.3.2)
+  '@splidejs/vue-splide':
+    specifier: ^0.6.12
+    version: 0.6.12
+  maz-ui:
+    specifier: ^3.9.0
+    version: 3.9.0(vue@3.3.2)
 
 devDependencies:
   '@nuxt/devtools':
@@ -1452,10 +1452,6 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@popperjs/core@2.11.7:
-    resolution: {integrity: sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==}
-    dev: false
-
   /@rollup/plugin-alias@5.0.0(rollup@3.22.0):
     resolution: {integrity: sha512-l9hY5chSCjuFRPsnRm16twWBiSApl2uYFLsepQYwtBuAxNMQ/1dJqADld40P0Jkqm65GRTLy/AC6hnpVebtLsA==}
     engines: {node: '>=14.0.0'}
@@ -1615,6 +1611,16 @@ packages:
     resolution: {integrity: sha512-a31EnjuIDSX8IXBUib3cYLDRlPMU36AWX4xS8ysLaNu4ZzUesDiPt83pgrW2X1YLMe5L2HbDyaKK5BrL4cNKaQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: true
+
+  /@splidejs/splide@4.1.4:
+    resolution: {integrity: sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==}
+    dev: false
+
+  /@splidejs/vue-splide@0.6.12:
+    resolution: {integrity: sha512-eQb8pnGMN8Tr0FVaQo1PUMZlMHl8fSqHNXPTx79eeE2dkZqbsvq6jRzXoT9ZF7hFkxdOEmB6qYNp93SUwV684g==}
+    dependencies:
+      '@splidejs/splide': 4.1.4
+    dev: false
 
   /@tootallnate/once@2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
@@ -5563,6 +5569,31 @@ packages:
       - supports-color
     dev: true
 
+  /maz-ui@3.9.0(vue@3.3.2):
+    resolution: {integrity: sha512-s0OCM2Eu5gHU2e4NerZnv7iTltW5Qowikyw0nQwY6kjfEjlMxiXntm/UBKo2aiGkQkDOfCaVLK2uetSfz0deBA==}
+    engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
+    peerDependencies:
+      chart.js: ^4.0.0
+      dayjs: ^1.1.0
+      dropzone: ^5.9.3
+      libphonenumber-js: ^1.9.44
+      vue: ^3.0.0
+      vue-router: ^4.0.0
+    peerDependenciesMeta:
+      chart.js:
+        optional: true
+      dayjs:
+        optional: true
+      dropzone:
+        optional: true
+      libphonenumber-js:
+        optional: true
+      vue-router:
+        optional: true
+    dependencies:
+      vue: 3.3.2
+    dev: false
+
   /mdn-data@2.0.28:
     resolution: {integrity: sha512-aylIc7Z9y4yzHYAJNuESG3hfhC+0Ibp/MAMiaOZgNv4pmEdFyfZhhhny4MNiAfWdBQ1RQ2mfDWmM1x8SvGyp8g==}
     dev: true
@@ -7152,12 +7183,6 @@ packages:
       tunnel-agent: 0.6.0
     dev: true
     optional: true
-
-  /preline@1.8.0:
-    resolution: {integrity: sha512-guttn86Fc/+AbvN9oKcr2z3zU7DL3Q5dl7nhcR4nTi5F02LXQc7WIYwgIXMR97kymCs52feiju6glXO3dUIpvA==}
-    dependencies:
-      '@popperjs/core': 2.11.7
-    dev: false
 
   /prelude-ls@1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
@@ -8874,14 +8899,6 @@ packages:
       '@vue/devtools-api': 6.5.0
       vue: 3.3.2
     dev: true
-
-  /vue3-carousel@0.3.1(vue@3.3.2):
-    resolution: {integrity: sha512-86vUkNPBzL2PVuR9w6hUsI90ccFjLp+K8cSFpRTISf+SjUQY3fMHc5CFF5MUL62v1xYYm27zEBmQupO9VQx9Kw==}
-    peerDependencies:
-      vue: ^3.2.0
-    dependencies:
-      vue: 3.3.2
-    dev: false
 
   /vue@3.3.2:
     resolution: {integrity: sha512-98hJcAhyDwZoOo2flAQBSPVYG/o0HA9ivIy2ktHshjE+6/q8IMQ+kvDKQzOZTFPxvnNMcGM+zS2A00xeZMA7tA==}

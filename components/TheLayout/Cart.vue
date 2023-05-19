@@ -1,29 +1,35 @@
+<script setup lang="ts">
+
+// ** MazUI Imports
+import MazDrawer from 'maz-ui/components/MazDrawer'
+
+// ** Props & Emits
+interface Props {
+    modelValue: boolean
+}
+
+interface Emits {
+    (event: 'update:modelValue', payload: boolean): boolean
+}
+
+defineProps<Props>()
+
+const emits = defineEmits<Emits>()
+</script>
+
 <template>
-    <Teleport to="body">
-        <aside
-            id="hs-overplay-cart"
-            class="hs-overlay hs-overlay-open:translate-x-0 hidden translate-x-full fixed top-0 right-0 transition-all duration-300 transform h-full max-w-xs w-full z-[60] bg-white border-l overflow-auto"
-            tabindex="-1"
-        >
-            <div class="flex justify-between items-center py-3 px-4 border-b">
-                <h3 class="font-semibold text-gray-700 text-md uppercase">
-                    {{ $t('Cart.Title') }}
-                </h3>
+    <MazDrawer
+        variant="right"
+        :model-value="modelValue"
+        @update:model-value="emits('update:modelValue', false)"
+    >
+        <template #title>
+            <h3 class="font-semibold text-gray-700 text-md uppercase">
+                {{ $t('Cart.Title') }}
+            </h3>
+        </template>
 
-                <button
-                    type="button"
-                    class="inline-flex flex-shrink-0 justify-center items-center h-8 w-8 rounded-md text-gray-500 hover:text-gray-700 text-sm"
-                    data-hs-overlay="#hs-overplay-cart"
-                >
-                    <span class="sr-only">Close modal</span>
-
-                    <Icon
-                        name="bx:x"
-                        size="24"
-                    />
-                </button>
-            </div>
-
+        <template #default>
             <div class="p-4">
                 <ul>
                     <li
@@ -57,6 +63,6 @@
                     </button>
                 </div>
             </div>
-        </aside>
-    </Teleport>
+        </template>
+    </MazDrawer>
 </template>

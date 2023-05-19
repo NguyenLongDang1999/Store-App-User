@@ -2,6 +2,7 @@
 
 // ** Data
 const search = ref<string>('')
+const cartDialog = ref<boolean>(false)
 
 // ** useHooks
 const { isDesktop, isTablet } = useMedia()
@@ -56,7 +57,10 @@ const { isDesktop, isTablet } = useMedia()
                             </TheTooltip>
                         </li>
 
-                        <li class="relative">
+                        <li
+                            class="relative"
+                            @click="cartDialog = true"
+                        >
                             <TheTooltip
                                 :title="$t('Cart.Title')"
                                 placement="bottom"
@@ -65,7 +69,6 @@ const { isDesktop, isTablet } = useMedia()
                                     name="bx:basket"
                                     size="28"
                                     :count="3"
-                                    data-hs-overlay="#hs-overplay-cart"
                                 />
                             </TheTooltip>
                         </li>
@@ -73,5 +76,7 @@ const { isDesktop, isTablet } = useMedia()
                 </div>
             </div>
         </TheContainer>
+
+        <LazyTheLayoutCart v-model="cartDialog" />
     </div>
 </template>
