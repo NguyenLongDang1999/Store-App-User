@@ -40,6 +40,7 @@ defineProps<Props>()
                             <Icon
                                 name="bx:show"
                                 size="17"
+                                data-hs-overlay="#hs-product-modal"
                             />
                         </li>
                     </ul>

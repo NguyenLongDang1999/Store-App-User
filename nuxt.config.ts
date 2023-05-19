@@ -8,6 +8,7 @@ export default defineNuxtConfig({
         '@nuxtjs/google-fonts',
         '@vueuse/nuxt',
         'nuxt-icon',
+        'nuxt-viewport',
         [
             '@pinia/nuxt', {
                 autoImports: ['defineStore', 'storeToRefs']
@@ -15,14 +16,6 @@ export default defineNuxtConfig({
         ]
     ],
     app: {
-        head: {
-            // script: [
-            //     {
-            //         src: '/vendor/preline/dist/preline.js',
-            //         defer: true
-            //     }
-            // ]
-        },
         pageTransition: {
             name: 'page',
             mode: 'out-in'
@@ -71,5 +64,22 @@ export default defineNuxtConfig({
     },
     imports: {
         dirs: ['stores']
+    },
+    viewport: {
+        breakpoints: {
+            xs: 450,
+            sm: 576,
+            md: 768,
+            lg: 992,
+            xl: 1200,
+            '2xl': 1450
+        },
+        cookieName: 'viewport',
+        defaultBreakpoints: {
+            desktop: 'lg',
+            mobile: 'sm',
+            tablet: 'md'
+        },
+        fallbackBreakpoint: 'desktop'
     }
 })

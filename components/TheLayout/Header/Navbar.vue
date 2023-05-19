@@ -2,6 +2,9 @@
 
 // ** Utils Imports
 import navItems from '~~/utils/navigations'
+
+// ** useHooks
+const { isLarge, isDesktop } = useMedia()
 </script>
 
 <template>
@@ -21,12 +24,15 @@ import navItems from '~~/utils/navigations'
                             size="24"
                         />
 
-                        <span class="pl-2 capitalize lg:block hidden">{{ $t('Category.List') }}</span>
+                        <span
+                            v-if="isLarge"
+                            class="pl-2 capitalize"
+                        >{{ $t('Category.List') }}</span>
                     </button>
                 </div>
 
                 <div class="col-span-9">
-                    <div class="md:block hidden">
+                    <template v-if="isDesktop">
                         <ul class="flex gap-4">
                             <li
                                 v-for="nav in navItems"
@@ -41,9 +47,9 @@ import navItems from '~~/utils/navigations'
                                 </NuxtLink>
                             </li>
                         </ul>
-                    </div>
+                    </template>
 
-                    <div class="md:hidden block">
+                    <template v-else>
                         <ul class="flex justify-end gap-6">
                             <li class="relative">
                                 <TheTooltip
@@ -113,7 +119,7 @@ import navItems from '~~/utils/navigations'
                                 </TheTooltip>
                             </li>
                         </ul>
-                    </div>
+                    </template>
                 </div>
             </div>
         </TheContainer>

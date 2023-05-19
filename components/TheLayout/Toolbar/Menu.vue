@@ -1,6 +1,15 @@
+<script setup lang="ts">
+
+// ** useHooks
+const { isMobile } = useMedia()
+</script>
+
 <template>
     <Teleport to="body">
-        <div class="fixed bottom-0 left-0 right-0 z-20 overflow-y-hidden justify-between bg-white h-16 p-[5px] shadow-[0_0_5px_rgba(61,61,61,.2)] sm:hidden inline-flex">
+        <div
+            v-if="isMobile"
+            class="fixed bottom-0 left-0 right-0 z-20 overflow-y-hidden justify-between bg-white h-16 p-[5px] shadow-[0_0_5px_rgba(61,61,61,.2)] inline-flex"
+        >
             <TheContainer>
                 <ul class="flex justify-between items-center h-full">
                     <li>

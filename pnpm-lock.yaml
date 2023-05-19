@@ -63,6 +63,9 @@ devDependencies:
   nuxt-icon:
     specifier: ^0.3.3
     version: 0.3.3(vue@3.3.2)
+  nuxt-viewport:
+    specifier: ^2.0.4
+    version: 2.0.4(vue@3.3.2)
   sass:
     specifier: ^1.62.1
     version: 1.62.1
@@ -6178,6 +6181,19 @@ packages:
       - vue
     dev: true
 
+  /nuxt-viewport@2.0.4(vue@3.3.2):
+    resolution: {integrity: sha512-kL6A52OJ4li3g9ZEBXGveCo/SnybO5h3j17RO3qqx98ffqXy5PycMYFwiAd3hhcVUmRCuwiNne3SR03s7Wojig==}
+    dependencies:
+      '@nuxt/kit': 3.5.0
+      ua-parser-js: 1.0.35
+      vue-demi: 0.13.11(vue@3.3.2)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - rollup
+      - supports-color
+      - vue
+    dev: true
+
   /nuxt@3.5.0(@types/node@18.16.12)(eslint@8.40.0)(sass@1.62.1)(typescript@5.0.4):
     resolution: {integrity: sha512-luUmzwnywpBhA5KSJr0IulBAK36mY4XWgtq/sJXYBCthPrdEhq6yIEHFRv7xSrYso1griMIVq+ivIFKSMe/QUw==}
     engines: {node: ^14.18.0 || >=16.10.0}
@@ -8284,6 +8300,10 @@ packages:
     resolution: {integrity: sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==}
     engines: {node: '>=12.20'}
     hasBin: true
+    dev: true
+
+  /ua-parser-js@1.0.35:
+    resolution: {integrity: sha512-fKnGuqmTBnIE+/KXSzCn4db8RTigUzw1AN0DmdU6hJovUTbYJKyqj+8Mt1c4VfRDnOVJnENmfYkIPZ946UrSAA==}
     dev: true
 
   /ufo@1.1.2:

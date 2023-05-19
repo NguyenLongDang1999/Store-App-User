@@ -2,6 +2,9 @@
 
 // ** Data
 const search = ref<string>('')
+
+// ** useHooks
+const { isDesktop, isTablet } = useMedia()
 </script>
 
 <template>
@@ -21,11 +24,17 @@ const search = ref<string>('')
                     </div>
                 </div>
 
-                <div class="md:col-span-6 sm:col-span-6 sm:block hidden">
+                <div
+                    v-if="isTablet"
+                    class="col-span-6"
+                >
                     <BaseFormSearch v-model="search" />
                 </div>
 
-                <div class="col-span-3 md:block hidden">
+                <div
+                    v-if="isDesktop"
+                    class="col-span-3"
+                >
                     <ul class="flex justify-end lg:gap-8 gap-4">
                         <li class="relative">
                             <TheIconBadge

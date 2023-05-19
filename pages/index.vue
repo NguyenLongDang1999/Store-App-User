@@ -1,4 +1,6 @@
 <template>
-    <PageHomeSlider />
-    <LazyPageHomeProduct />
+    <div>
+        <PageHomeSlider />
+        <LazyPageHomeProduct />
+    </div>
 </template>
