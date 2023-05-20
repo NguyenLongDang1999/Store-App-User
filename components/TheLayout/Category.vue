@@ -1,19 +1,39 @@
-<template>
-    <Teleport to="body">
-        <div
-            id="hs-overplay-category"
-            class="hs-overlay hs-overlay-open:translate-x-0 hidden -translate-x-full fixed top-0 left-0 transition-all duration-300 transform h-full max-w-xs w-full z-[60] bg-white border-r pt-7 pb-10 overflow-y-auto scrollbar-y"
-        >
-            <div class="px-6">
-                <NuxtLink
-                    to="/"
-                    class="flex-none text-xl font-semibold"
-                    aria-label="Brand"
-                >
-                    Brand
-                </NuxtLink>
-            </div>
+<script setup lang="ts">
 
+// ** MazUI Imports
+import MazDrawer from 'maz-ui/components/MazDrawer'
+
+// ** Props & Emits
+interface Props {
+    modelValue: boolean
+}
+
+interface Emits {
+    (event: 'update:modelValue', payload: boolean): boolean
+}
+
+defineProps<Props>()
+
+const emits = defineEmits<Emits>()
+</script>
+
+<template>
+    <MazDrawer
+        variant="left"
+        :model-value="modelValue"
+        size="320px"
+        @update:model-value="emits('update:modelValue', false)"
+    >
+        <template #title>
+            <NuxtLink
+                to="/"
+                class="flex-none text-lg font-semibold capitalize"
+            >
+                {{ $t('Category.List') }}
+            </NuxtLink>
+        </template>
+
+        <template #default>
             <nav class="hs-accordion-group p-6 w-full flex flex-col flex-wrap">
                 <ul class="space-y-1.5">
                     <li>
@@ -247,6 +267,6 @@
                     </li>
                 </ul>
             </nav>
-        </div>
-    </Teleport>
+        </template>
+    </MazDrawer>
 </template>

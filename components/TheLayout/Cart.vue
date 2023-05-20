@@ -21,10 +21,11 @@ const emits = defineEmits<Emits>()
     <MazDrawer
         variant="right"
         :model-value="modelValue"
+        size="350px"
         @update:model-value="emits('update:modelValue', false)"
     >
         <template #title>
-            <h3 class="font-semibold text-gray-700 text-md uppercase">
+            <h3 class="font-semibold text-gray-700 text-sm uppercase">
                 {{ $t('Cart.Title') }}
             </h3>
         </template>
@@ -57,7 +58,7 @@ const emits = defineEmits<Emits>()
 
                     <button
                         type="button"
-                        class="py-3 px-4 py-3 px-4 w-1/2 rounded-md capitalize border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm"
+                        class="py-3 px-4 w-1/2 rounded-md capitalize border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm"
                     >
                         {{ $t('Cart.Checkout') }}
                     </button>

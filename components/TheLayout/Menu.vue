@@ -1,37 +1,65 @@
-<template>
-    <Teleport to="body">
-        <div
-            id="hs-overplay-menu"
-            class="hs-overlay hs-overlay-open:translate-x-0 hidden -translate-x-full fixed top-0 left-0 transition-all duration-300 transform h-full max-w-xs w-full z-[60] bg-white border-r pt-7 pb-10 overflow-y-auto scrollbar-y"
-        >
-            <div class="px-6">
-                <NuxtLink
-                    to="/"
-                    class="flex-none text-xl font-semibold"
-                    aria-label="Brand"
-                >
-                    MENU
-                </NuxtLink>
-            </div>
+<script setup lang="ts">
 
+// ** MazUI Imports
+import MazDrawer from 'maz-ui/components/MazDrawer'
+
+// ** Utils Imports
+import navItems from '~~/utils/navigations'
+
+// ** Props & Emits
+interface Props {
+    modelValue: boolean
+}
+
+interface Emits {
+    (event: 'update:modelValue', payload: boolean): boolean
+}
+
+defineProps<Props>()
+
+const emits = defineEmits<Emits>()
+
+// ** useHooks
+const localePath = useLocalePath()
+const route = useRoute()
+
+// ** Watch
+watch(route, () => emits('update:modelValue', false), { deep: true, immediate: true })
+</script>
+
+<template>
+    <MazDrawer
+        variant="left"
+        :model-value="modelValue"
+        size="320px"
+        @update:model-value="emits('update:modelValue', false)"
+    >
+        <template #title>
+            <NuxtLink
+                to="/"
+                class="flex-none text-xl font-semibold"
+            >
+                MENU
+            </NuxtLink>
+        </template>
+
+        <template #default>
             <nav class="hs-accordion-group p-6 w-full flex flex-col flex-wrap">
                 <ul class="space-y-1.5">
-                    <li>
+                    <li
+                        v-for="nav in navItems"
+                        :key="nav.to"
+                    >
                         <NuxtLink
-                            class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-slate-700 rounded-md hover:bg-gray-100"
-                            href="javascript:;"
+                            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md capitalize"
+                            :to="localePath({ name: nav.name })"
+                            active-class="bg-gray-100"
                         >
-                            <Icon
-                                name="bx:home"
-                                class="w-3.5 h-3.5"
-                                size="16"
-                            />
-
-                            Dashboard
+                            {{ $t(`Navigation.${nav.title}`) }}
                         </NuxtLink>
                     </li>
                 </ul>
             </nav>
-        </div>
-    </Teleport>
+        </template>
+    </MazDrawer>
 </template>

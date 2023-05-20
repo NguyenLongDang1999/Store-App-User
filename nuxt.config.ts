@@ -15,7 +15,10 @@ export default defineNuxtConfig({
             }
         ]
     ],
-    css: ['maz-ui/css/main.css'],
+    css: [
+        'maz-ui/css/main.css',
+        '@/assets/main.scss'
+    ],
     build: {
         transpile: ['maz-ui']
     },

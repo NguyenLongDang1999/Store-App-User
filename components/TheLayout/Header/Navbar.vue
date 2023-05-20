@@ -4,7 +4,14 @@
 import navItems from '~~/utils/navigations'
 
 // ** useHooks
-const { isLarge, isDesktop } = useMedia()
+const { isLarge, isDesktop, isMobile, isTablet } = useMedia()
+const localePath = useLocalePath()
+
+// ** Data
+const showCart = ref<boolean>(false)
+const showMenu = ref<boolean>(false)
+const showSearch = ref<boolean>(false)
+const showCategory = ref<boolean>(false)
 </script>
 
 <template>
@@ -15,9 +22,7 @@ const { isLarge, isDesktop } = useMedia()
                     <button
                         type="button"
                         class="border-0 flex items-center bg-blue-600 text-white rounded-lg py-2 px-4 transition-all hover:bg-blue-700"
-                        data-hs-overlay="#hs-overplay-category"
-                        aria-controls="hs-overplay-category"
-                        aria-label="Toggle category"
+                        @click="showCategory = true"
                     >
                         <Icon
                             name="bx:align-left"
@@ -63,7 +68,11 @@ const { isLarge, isDesktop } = useMedia()
                                 </TheTooltip>
                             </li>
 
-                            <li class="relative">
+                            <li
+                                v-if="isMobile"
+                                class="relative"
+                                @click="showSearch = true"
+                            >
                                 <TheTooltip
                                     :title="$t('Search.Product')"
                                     placement="bottom"
@@ -71,12 +80,14 @@ const { isLarge, isDesktop } = useMedia()
                                     <TheIconBadge
                                         name="bx:search"
                                         size="28"
-                                        data-hs-overlay="#hs-search"
                                     />
                                 </TheTooltip>
                             </li>
 
-                            <li class="relative">
+                            <li
+                                v-if="isTablet"
+                                class="relative"
+                            >
                                 <TheTooltip
                                     :title="$t('WishList.Product')"
                                     placement="bottom"
@@ -89,7 +100,11 @@ const { isLarge, isDesktop } = useMedia()
                                 </TheTooltip>
                             </li>
 
-                            <li class="relative">
+                            <li
+                                v-if="isTablet"
+                                class="relative"
+                                @click="showCart = true"
+                            >
                                 <TheTooltip
                                     :title="$t('Cart.Title')"
                                     placement="bottom"
@@ -98,12 +113,15 @@ const { isLarge, isDesktop } = useMedia()
                                         name="bx:basket"
                                         size="28"
                                         :count="3"
-                                        data-hs-overlay="#hs-overplay-cart"
                                     />
                                 </TheTooltip>
                             </li>
 
-                            <li class="relative">
+                            <li
+                                v-if="isTablet"
+                                class="relative"
+                                @click="showMenu = true"
+                            >
                                 <TheTooltip
                                     :title="$t('Menu.Name')"
                                     placement="bottom"
@@ -111,10 +129,6 @@ const { isLarge, isDesktop } = useMedia()
                                     <TheIconBadge
                                         name="bx:list-ul"
                                         size="28"
-                                        :count="3"
-                                        data-hs-overlay="#hs-overplay-menu"
-                                        aria-controls="hs-overplay-menu"
-                                        aria-label="Toggle menu"
                                     />
                                 </TheTooltip>
                             </li>
@@ -123,5 +137,10 @@ const { isLarge, isDesktop } = useMedia()
                 </div>
             </div>
         </TheContainer>
+
+        <LazyTheLayoutCart v-model="showCart" />
+        <LazyTheLayoutMenu v-model="showMenu" />
+        <LazyTheLayoutSearch v-model="showSearch" />
+        <LazyTheLayoutCategory v-model="showCategory" />
     </nav>
 </template>

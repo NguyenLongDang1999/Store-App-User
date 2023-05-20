@@ -2,6 +2,10 @@
 
 // ** useHooks
 const { isMobile } = useMedia()
+
+// ** Data
+const showCart = ref<boolean>(false)
+const showMenu = ref<boolean>(false)
 </script>
 
 <template>
@@ -12,13 +16,10 @@ const { isMobile } = useMedia()
         >
             <TheContainer>
                 <ul class="flex justify-between items-center h-full">
-                    <li>
+                    <li @click="showMenu = true">
                         <TheIconBadge
                             name="bx:list-ul"
                             size="28"
-                            data-hs-overlay="#hs-overplay-menu"
-                            aria-controls="hs-overplay-menu"
-                            aria-label="Toggle menu"
                         />
                     </li>
 
@@ -31,20 +32,23 @@ const { isMobile } = useMedia()
                     </li>
 
                     <li>
-                        <TheIconBadge
-                            name="bx:home"
-                            size="28"
-                        />
+                        <NuxtLink to="/">
+                            <TheIconBadge
+                                name="bx:home"
+                                size="28"
+                            />
+                        </NuxtLink>
                     </li>
 
 
-                    <li class="relative">
+                    <li
+                        class="relative"
+                        @click="showCart = true"
+                    >
                         <TheIconBadge
                             name="bx:cart"
                             size="28"
                             :count="3"
-                            data-hs-overlay="#hs-overplay-cart"
-                            aria-controls="hs-overplay-cart"
                         />
                     </li>
 
@@ -57,5 +61,8 @@ const { isMobile } = useMedia()
                 </ul>
             </TheContainer>
         </div>
+
+        <LazyTheLayoutCart v-model="showCart" />
+        <LazyTheLayoutMenu v-model="showMenu" />
     </Teleport>
 </template>
