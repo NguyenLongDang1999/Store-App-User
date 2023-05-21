@@ -6,6 +6,9 @@ interface Props {
 }
 
 defineProps<Props>()
+
+// ** Data
+const showProduct = ref<boolean>(false)
 </script>
 
 <template>
@@ -22,14 +25,20 @@ defineProps<Props>()
 
                 <div class="absolute top-3 right-3 overflow-hidden">
                     <ul class="flex flex-col gap-1 transition-all duration-500 transform md:translate-y-[-100px] md:opacity-0 md:invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
-                        <li class="bg-white border border-solid border-gray-200 w-8 h-8 leading-7 cursor-pointer text-center rounded">
+                        <li
+                            v-tooltip.left="$t('Cart.Title')"
+                            class="bg-white border border-solid border-gray-200 w-8 h-8 leading-7 cursor-pointer text-center rounded"
+                        >
                             <Icon
                                 name="bx:basket"
                                 size="17"
                             />
                         </li>
 
-                        <li class="bg-white border border-solid border-gray-200 w-8 h-8 leading-7 cursor-pointer text-center rounded">
+                        <li
+                            v-tooltip.left="$t('WishList.Product')"
+                            class="bg-white border border-solid border-gray-200 w-8 h-8 leading-7 cursor-pointer text-center rounded"
+                        >
                             <Icon
                                 name="bx:heart"
                                 size="16"
@@ -37,8 +46,9 @@ defineProps<Props>()
                         </li>
 
                         <li
+                            v-tooltip.left="$t('QuickView')"
                             class="bg-white border border-solid border-gray-200 w-8 h-8 leading-7 cursor-pointer text-center rounded"
-                            data-hs-overlay="#hs-product-modal"
+                            @click="showProduct = true"
                         >
                             <Icon
                                 name="bx:show"
@@ -57,15 +67,13 @@ defineProps<Props>()
                 </NuxtLink>
             </h6>
 
-            <h5 class="text-lg mb-2">
-                <TheTooltip
-                    placement="top"
-                    :title="`Product-${product}`"
-                >
-                    <NuxtLink class="line-clamp-2 text-gray-500 md:text-[16px] text-sm font-normal capitalize hover:text-primary-600 transition duration-300">
-                        Product-{{ product }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorum ea enim excepturi illo inventore laborum minima necessitatibus, numquam, optio, quia recusandae! Consequuntur eaque facere maiores nam nobis repudiandae sed!
-                    </NuxtLink>
-                </TheTooltip>
+            <h5
+                v-tooltip.bottom="`Product-${product}`"
+                class="text-lg mb-2"
+            >
+                <NuxtLink class="line-clamp-2 text-gray-500 md:text-[16px] text-sm font-normal capitalize hover:text-primary-600 transition duration-300">
+                    Product-{{ product }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorum ea enim excepturi illo inventore laborum minima necessitatibus, numquam, optio, quia recusandae! Consequuntur eaque facere maiores nam nobis repudiandae sed!
+                </NuxtLink>
             </h5>
 
             <div class="flex flex-wrap items-center gap-2">
@@ -73,5 +81,10 @@ defineProps<Props>()
                 <span class="line-through text-gray-500 font-light">600.000đ</span>
             </div>
         </div>
+
+        <LazyBaseDialogQuickView
+            v-model="showProduct"
+            :product="1"
+        />
     </div>
 </template>

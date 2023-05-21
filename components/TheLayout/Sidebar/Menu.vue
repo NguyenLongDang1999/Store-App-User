@@ -44,7 +44,7 @@ watch(route, () => emits('update:modelValue', false), { deep: true, immediate: t
         </template>
 
         <template #default>
-            <nav class="hs-accordion-group p-6 w-full flex flex-col flex-wrap">
+            <nav class="p-6 w-full flex flex-col flex-wrap">
                 <ul class="space-y-1.5">
                     <li
                         v-for="nav in navItems"

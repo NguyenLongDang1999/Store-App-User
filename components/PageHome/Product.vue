@@ -1,7 +1,7 @@
 <template>
     <section class="mt-24">
         <TheContainer>
-            <div class="grid grid-cols-12 md:gap-8 gap-4">
+            <div class="grid grid-cols-12 gap-4">
                 <div class="col-span-12">
                     <TheTitle title="News" />
                 </div>

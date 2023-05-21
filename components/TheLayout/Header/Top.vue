@@ -37,46 +37,43 @@ const { isDesktop, isTablet } = useMedia()
                     class="col-span-3"
                 >
                     <ul class="flex justify-end lg:gap-8 gap-4">
-                        <li class="relative">
+                        <li
+                            v-tooltip.bottom="$t('Auth.Name')"
+                            class="relative"
+                        >
                             <TheIconBadge
                                 name="bx:user"
                                 size="28"
                             />
                         </li>
 
-                        <li class="relative">
-                            <TheTooltip
-                                :title="$t('WishList.Product')"
-                                placement="bottom"
-                            >
-                                <TheIconBadge
-                                    name="bx:heart"
-                                    size="28"
-                                    :count="4"
-                                />
-                            </TheTooltip>
+                        <li
+                            v-tooltip.bottom="$t('WishList.Product')"
+                            class="relative"
+                        >
+                            <TheIconBadge
+                                name="bx:heart"
+                                size="28"
+                                :count="4"
+                            />
                         </li>
 
                         <li
+                            v-tooltip.bottom="$t('Cart.Title')"
                             class="relative"
                             @click="cartDialog = true"
                         >
-                            <TheTooltip
-                                :title="$t('Cart.Title')"
-                                placement="bottom"
-                            >
-                                <TheIconBadge
-                                    name="bx:basket"
-                                    size="28"
-                                    :count="3"
-                                />
-                            </TheTooltip>
+                            <TheIconBadge
+                                name="bx:basket"
+                                size="28"
+                                :count="3"
+                            />
                         </li>
                     </ul>
                 </div>
             </div>
         </TheContainer>
 
-        <LazyTheLayoutCart v-model="cartDialog" />
+        <LazyTheLayoutSidebarCart v-model="cartDialog" />
     </div>
 </template>

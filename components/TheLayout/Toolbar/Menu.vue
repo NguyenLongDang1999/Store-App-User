@@ -62,7 +62,7 @@ const showMenu = ref<boolean>(false)
             </TheContainer>
         </div>
 
-        <LazyTheLayoutCart v-model="showCart" />
-        <LazyTheLayoutMenu v-model="showMenu" />
+        <LazyTheLayoutSidebarCart v-model="showCart" />
+        <LazyTheLayoutSidebarMenu v-model="showMenu" />
     </Teleport>
 </template>

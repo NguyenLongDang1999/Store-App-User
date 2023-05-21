@@ -87,6 +87,6 @@ export default defineNuxtConfig({
             mobile: 'sm',
             tablet: 'md'
         },
-        fallbackBreakpoint: 'desktop'
+        fallbackBreakpoint: 'lg'
     }
 })

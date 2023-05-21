@@ -56,81 +56,63 @@ const showCategory = ref<boolean>(false)
 
                     <template v-else>
                         <ul class="flex justify-end gap-6">
-                            <li class="relative">
-                                <TheTooltip
-                                    :title="$t('Auth.Name')"
-                                    placement="bottom"
-                                >
-                                    <TheIconBadge
-                                        name="bx:user"
-                                        size="28"
-                                    />
-                                </TheTooltip>
+                            <li
+                                v-tooltip.bottom="$t('Auth.Name')"
+                                class="relative"
+                            >
+                                <TheIconBadge
+                                    name="bx:user"
+                                    size="28"
+                                />
                             </li>
 
                             <li
                                 v-if="isMobile"
+                                v-tooltip.bottom="$t('Search.Product')"
                                 class="relative"
                                 @click="showSearch = true"
                             >
-                                <TheTooltip
-                                    :title="$t('Search.Product')"
-                                    placement="bottom"
-                                >
-                                    <TheIconBadge
-                                        name="bx:search"
-                                        size="28"
-                                    />
-                                </TheTooltip>
+                                <TheIconBadge
+                                    name="bx:search"
+                                    size="28"
+                                />
                             </li>
 
                             <li
                                 v-if="isTablet"
+                                v-tooltip.bottom="$t('WishList.Product')"
                                 class="relative"
                             >
-                                <TheTooltip
-                                    :title="$t('WishList.Product')"
-                                    placement="bottom"
-                                >
-                                    <TheIconBadge
-                                        name="bx:heart"
-                                        size="28"
-                                        :count="4"
-                                    />
-                                </TheTooltip>
+                                <TheIconBadge
+                                    name="bx:heart"
+                                    size="28"
+                                    :count="4"
+                                />
                             </li>
 
                             <li
                                 v-if="isTablet"
+                                v-tooltip.bottom="$t('Cart.Title')"
                                 class="relative"
                                 @click="showCart = true"
                             >
-                                <TheTooltip
-                                    :title="$t('Cart.Title')"
-                                    placement="bottom"
-                                >
-                                    <TheIconBadge
-                                        name="bx:basket"
-                                        size="28"
-                                        :count="3"
-                                    />
-                                </TheTooltip>
+                                <TheIconBadge
+                                    name="bx:basket"
+                                    size="28"
+                                    :count="3"
+                                />
                             </li>
 
                             <li
                                 v-if="isTablet"
+                                v-tooltip.bottom="$t('Menu.Name')"
                                 class="relative"
                                 @click="showMenu = true"
                             >
-                                <TheTooltip
-                                    :title="$t('Menu.Name')"
-                                    placement="bottom"
-                                >
-                                    <TheIconBadge
-                                        name="bx:list-ul"
-                                        size="28"
-                                    />
-                                </TheTooltip>
+                                <TheIconBadge
+                                    name="bx:list-ul"
+                                    size="28"
+                                />
                             </li>
                         </ul>
                     </template>
@@ -138,9 +120,9 @@ const showCategory = ref<boolean>(false)
             </div>
         </TheContainer>
 
-        <LazyTheLayoutCart v-model="showCart" />
-        <LazyTheLayoutMenu v-model="showMenu" />
-        <LazyTheLayoutSearch v-model="showSearch" />
-        <LazyTheLayoutCategory v-model="showCategory" />
+        <LazyTheLayoutSidebarCart v-model="showCart" />
+        <LazyTheLayoutSidebarMenu v-model="showMenu" />
+        <LazyTheLayoutSidebarSearch v-model="showSearch" />
+        <LazyTheLayoutSidebarCategory v-model="showCategory" />
     </nav>
 </template>
