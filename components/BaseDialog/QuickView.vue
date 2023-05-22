@@ -2,8 +2,8 @@
 
 // ** MazUI Imports
 import MazDialog from 'maz-ui/components/MazDialog'
-import MazGallery from 'maz-ui/components/MazGallery'
 
+// ** Props & Emits
 interface Props {
     modelValue: boolean
     readonly product: number
@@ -17,11 +17,25 @@ const props = defineProps<Props>()
 const emits = defineEmits<Emits>()
 
 // ** Data
+const currentSlide = ref<number>(0)
+
 const images = [
-    'https://placekitten.com/800/800',
-    'https://placekitten.com/640/500',
-    'https://placekitten.com/640/1000'
+    {
+        id: 1,
+        url:'https://placekitten.com/800/800'
+    },
+    {
+        id: 2,
+        url:'https://placekitten.com/g/800/800'
+    },
+    {
+        id: 3,
+        url:'https://placekitten.com/810/810'
+    }
 ]
+
+// ** Methods
+const slideTo = (val: number) => currentSlide.value = val
 </script>
 
 <template>
@@ -33,10 +47,51 @@ const images = [
     >
         <div class="grid grid-cols-12 gap-4">
             <div class="md:col-span-6 col-span-12">
-                <MazGallery
-                    :images="images"
-                    :height="400"
-                />
+                <Carousel
+                    v-model="currentSlide"
+                    :items-to-show="1"
+                    :wrap-around="false"
+                    class="mb-4"
+                >
+                    <Slide
+                        v-for="slide in images"
+                        :key="slide.id"
+                    >
+                        <div class="carousel__item">
+                            <NuxtImg
+                                :alt="`Slider-${slide.id}`"
+                                :src="slide.url"
+                                width="800"
+                                height="800"
+                                class="rounded"
+                            />
+                        </div>
+                    </Slide>
+                </Carousel>
+
+                <Carousel
+                    v-model="currentSlide"
+                    :items-to-show="4"
+                >
+                    <Slide
+                        v-for="(slide, index) in images"
+                        :key="slide.id"
+                        class="px-1"
+                    >
+                        <div
+                            class="carousel__item"
+                            @click="slideTo(index)"
+                        >
+                            <NuxtImg
+                                :alt="`Slider-${slide.id}`"
+                                :src="slide.url"
+                                width="300"
+                                height="300"
+                                class="rounded"
+                            />
+                        </div>
+                    </Slide>
+                </Carousel>
             </div>
 
             <div class="md:col-span-6 col-span-12">
@@ -56,27 +111,3 @@ const images = [
         </div>
     </MazDialog>
 </template>
-
-<style>
-.carousel__item {
-    min-height: 200px;
-    width: 100%;
-    background-color: var(--vc-clr-primary);
-    color: var(--vc-clr-white);
-    font-size: 20px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel__slide {
-    padding: 10px;
-}
-
-.carousel__prev,
-.carousel__next {
-    box-sizing: content-box;
-    border: 5px solid white;
-}
-</style>

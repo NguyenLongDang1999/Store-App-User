@@ -1,5 +1,8 @@
 <script setup lang="ts">
 
+// ** MazUI Imports
+import MazInputNumber from 'maz-ui/components/MazInputNumber'
+
 // ** Props & Emits
 interface Props {
     product: number
@@ -27,6 +30,15 @@ defineProps<Props>()
             <div class="text-sm mt-1">
                 <span class="text-[16px] font-semibold pr-1">700.000đ</span>
                 <span>x1</span>
+            </div>
+
+            <div>
+                <MazInputNumber
+                    :min="1"
+                    :max="100"
+                    :step="1"
+                    size="xs"
+                />
             </div>
 
             <button

@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 import { blue } from 'tailwindcss/colors'
+import { fontFamily } from 'tailwindcss/defaultTheme'
 
 export default <Partial<Config>>{
     theme: {
@@ -16,7 +17,7 @@ export default <Partial<Config>>{
                 primary: blue
             },
             fontFamily: {
-                sans: ['"Public Sans"']
+                sans: ['"Public Sans"', ...fontFamily.sans]
             }
         }
     }
