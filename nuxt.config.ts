@@ -72,6 +72,12 @@ export default defineNuxtConfig({
     imports: {
         dirs: ['stores']
     },
+    components: [
+        {
+            path: '~/components',
+            pathPrefix: false
+        }
+    ],
     viewport: {
         breakpoints: {
             xs: 450,

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 
 // ** MazUI Imports
-import MazInputNumber from 'maz-ui/components/MazInputNumber'
+import MazBtn from 'maz-ui/components/MazBtn'
+import MazInput from 'maz-ui/components/MazInput'
 
 // ** Props & Emits
 interface Props {
@@ -9,6 +10,9 @@ interface Props {
 }
 
 defineProps<Props>()
+
+// ** Data
+const quantity = ref<number>(1)
 </script>
 
 <template>
@@ -32,13 +36,36 @@ defineProps<Props>()
                 <span>x1</span>
             </div>
 
-            <div>
-                <MazInputNumber
-                    :min="1"
-                    :max="100"
-                    :step="1"
-                    size="xs"
+            <div class="flex gap-2">
+                <MazBtn
+                    color="transparent"
+                    size="mini"
+                    outline
+                    @click="quantity--"
+                >
+                    <Icon
+                        name="bx:minus"
+                        size="16"
+                    />
+                </MazBtn>
+
+                <MazInput
+                    v-model.number="quantity"
+                    size="mini"
+                    class="w-20"
                 />
+
+                <MazBtn
+                    color="transparent"
+                    size="mini"
+                    outline
+                    @click="quantity++"
+                >
+                    <Icon
+                        name="bx:plus"
+                        size="16"
+                    />
+                </MazBtn>
             </div>
 
             <button

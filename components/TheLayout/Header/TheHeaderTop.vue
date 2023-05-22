@@ -2,10 +2,10 @@
 
 // ** Data
 const search = ref<string>('')
-const cartDialog = ref<boolean>(false)
+const showCart = ref<boolean>(false)
 
 // ** useHooks
-const { isDesktop, isTablet } = useMedia()
+const { isGreaterOrEquals } = useViewport()
 </script>
 
 <template>
@@ -26,14 +26,14 @@ const { isDesktop, isTablet } = useMedia()
                 </div>
 
                 <div
-                    v-if="isTablet"
+                    v-if="isGreaterOrEquals('sm')"
                     class="col-span-6"
                 >
                     <BaseFormSearch v-model="search" />
                 </div>
 
                 <div
-                    v-if="isDesktop"
+                    v-if="isGreaterOrEquals('md')"
                     class="col-span-3"
                 >
                     <ul class="flex justify-end lg:gap-8 gap-4">
@@ -61,7 +61,7 @@ const { isDesktop, isTablet } = useMedia()
                         <li
                             v-tooltip.bottom="$t('Cart.Title')"
                             class="relative"
-                            @click="cartDialog = true"
+                            @click="showCart = true"
                         >
                             <TheIconBadge
                                 name="bx:basket"
@@ -74,6 +74,6 @@ const { isDesktop, isTablet } = useMedia()
             </div>
         </TheContainer>
 
-        <LazyTheLayoutSidebarCart v-model="cartDialog" />
+        <LazyTheSidebarCart v-model="showCart" />
     </div>
 </template>

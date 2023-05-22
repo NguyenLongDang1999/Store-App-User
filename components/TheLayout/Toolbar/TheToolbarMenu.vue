@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 // ** useHooks
-const { isMobile } = useMedia()
+const { isLessThan } = useViewport()
 
 // ** Data
 const showCart = ref<boolean>(false)
@@ -11,7 +11,7 @@ const showMenu = ref<boolean>(false)
 <template>
     <Teleport to="body">
         <div
-            v-if="isMobile"
+            v-if="isLessThan('sm')"
             class="fixed bottom-0 left-0 right-0 z-20 overflow-y-hidden justify-between bg-white h-16 p-[5px] shadow-[0_0_5px_rgba(61,61,61,.2)] inline-flex"
         >
             <TheContainer>
@@ -40,7 +40,6 @@ const showMenu = ref<boolean>(false)
                         </NuxtLink>
                     </li>
 
-
                     <li
                         class="relative"
                         @click="showCart = true"
@@ -62,7 +61,7 @@ const showMenu = ref<boolean>(false)
             </TheContainer>
         </div>
 
-        <LazyTheLayoutSidebarCart v-model="showCart" />
-        <LazyTheLayoutSidebarMenu v-model="showMenu" />
+        <LazyTheSidebarCart v-model="showCart" />
+        <LazyTheSidebarMenu v-model="showMenu" />
     </Teleport>
 </template>

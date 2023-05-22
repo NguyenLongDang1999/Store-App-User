@@ -61,17 +61,17 @@ const showProduct = ref<boolean>(false)
         </div>
 
         <div class="tracking-wide">
-            <h6 class="mb-2">
-                <NuxtLink class="text-gray-400 whitespace-nowrap overflow-hidden text-ellipsis block md:text-sm text-[12px] font-normal capitalize">
+            <h6>
+                <NuxtLink class="text-gray-400 whitespace-nowrap overflow-hidden text-ellipsis block text-[12px] font-normal capitalize">
                     Category-{{ product }}
                 </NuxtLink>
             </h6>
 
             <h5
                 v-tooltip.bottom="`Product-${product}`"
-                class="text-lg mb-2"
+                class="text-lg my-2"
             >
-                <NuxtLink class="line-clamp-2 text-gray-500 md:text-[16px] text-sm font-normal capitalize hover:text-primary-600 transition duration-300">
+                <NuxtLink class="line-clamp-2 text-gray-500 text-sm font-normal capitalize hover:text-primary-600 transition duration-300">
                     Product-{{ product }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorum ea enim excepturi illo inventore laborum minima necessitatibus, numquam, optio, quia recusandae! Consequuntur eaque facere maiores nam nobis repudiandae sed!
                 </NuxtLink>
             </h5>

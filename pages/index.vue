@@ -1,6 +1,6 @@
 <template>
     <div>
-        <PageHomeCarousel />
-        <LazyPageHomeProduct />
+        <HomePageCarousel />
+        <HomePageProduct />
     </div>
 </template>

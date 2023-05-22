@@ -4,7 +4,7 @@
 import navItems from '~~/utils/navigations'
 
 // ** useHooks
-const { isLarge, isDesktop, isMobile, isTablet } = useMedia()
+const { isGreaterOrEquals, isLessThan } = useViewport()
 const localePath = useLocalePath()
 
 // ** Data
@@ -30,14 +30,14 @@ const showCategory = ref<boolean>(false)
                         />
 
                         <span
-                            v-if="isLarge"
+                            v-if="isGreaterOrEquals('lg')"
                             class="pl-2 capitalize"
                         >{{ $t('Category.List') }}</span>
                     </button>
                 </div>
 
                 <div class="col-span-9">
-                    <template v-if="isDesktop">
+                    <template v-if="isGreaterOrEquals('md')">
                         <ul class="flex gap-4">
                             <li
                                 v-for="nav in navItems"
@@ -67,7 +67,7 @@ const showCategory = ref<boolean>(false)
                             </li>
 
                             <li
-                                v-if="isMobile"
+                                v-if="isLessThan('sm')"
                                 v-tooltip.bottom="$t('Search.Product')"
                                 class="relative"
                                 @click="showSearch = true"
@@ -79,7 +79,7 @@ const showCategory = ref<boolean>(false)
                             </li>
 
                             <li
-                                v-if="isTablet"
+                                v-if="isGreaterOrEquals('sm')"
                                 v-tooltip.bottom="$t('WishList.Product')"
                                 class="relative"
                             >
@@ -91,7 +91,7 @@ const showCategory = ref<boolean>(false)
                             </li>
 
                             <li
-                                v-if="isTablet"
+                                v-if="isGreaterOrEquals('sm')"
                                 v-tooltip.bottom="$t('Cart.Title')"
                                 class="relative"
                                 @click="showCart = true"
@@ -104,7 +104,7 @@ const showCategory = ref<boolean>(false)
                             </li>
 
                             <li
-                                v-if="isTablet"
+                                v-if="isGreaterOrEquals('sm')"
                                 v-tooltip.bottom="$t('Menu.Name')"
                                 class="relative"
                                 @click="showMenu = true"
@@ -120,9 +120,9 @@ const showCategory = ref<boolean>(false)
             </div>
         </TheContainer>
 
-        <LazyTheLayoutSidebarCart v-model="showCart" />
-        <LazyTheLayoutSidebarMenu v-model="showMenu" />
-        <LazyTheLayoutSidebarSearch v-model="showSearch" />
-        <LazyTheLayoutSidebarCategory v-model="showCategory" />
+        <LazyTheSidebarCart v-model="showCart" />
+        <LazyTheSidebarMenu v-model="showMenu" />
+        <LazyTheSidebarSearch v-model="showSearch" />
+        <LazyTheSidebarCategory v-model="showCategory" />
     </nav>
 </template>

@@ -37,7 +37,7 @@ const emits = defineEmits<Emits>()
                         v-for="item in 10"
                         :key="item"
                     >
-                        <BaseProductCart :product="item" />
+                        <BaseProductItem :product="item" />
                     </li>
                 </ul>
 
