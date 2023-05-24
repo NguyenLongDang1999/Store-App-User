@@ -16,7 +16,7 @@
                     translate: ['100%', 0, 0],
                 },
             }"
-            loop="true"
+            loop
             effect="creative"
         >
             <SwiperSlide
@@ -33,6 +33,3 @@
         </Swiper>
     </section>
 </template>
-
-<script setup>
-</script>
