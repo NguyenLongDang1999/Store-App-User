@@ -14,7 +14,9 @@ export default {
         View: 'Xem giỏ hàng',
         Checkout: 'Thanh toán',
         Total: 'Tổng cộng',
-        Add: 'Thêm giỏ hàng'
+        Add: 'Thêm giỏ hàng',
+        Continue: 'Tiếp tục mua hàng',
+        Delete: 'Xóa sản phẩm'
     },
     Category: {
         List: 'Danh sách danh mục',
@@ -37,5 +39,6 @@ export default {
     Menu: {
         Name: 'Menu'
     },
+    Support: 'Hỗ trợ',
     QuickView: 'Xem nhanh'
 }

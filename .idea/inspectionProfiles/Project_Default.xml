@@ -5,8 +5,34 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="1">
+          <list size="27">
             <item index="0" class="java.lang.String" itemvalue="not-last" />
+            <item index="1" class="java.lang.String" itemvalue="w:grid" />
+            <item index="2" class="java.lang.String" itemvalue="w:display" />
+            <item index="3" class="java.lang.String" itemvalue="w:flex" />
+            <item index="4" class="java.lang.String" itemvalue="w:font" />
+            <item index="5" class="java.lang.String" itemvalue="w:text" />
+            <item index="6" class="java.lang.String" itemvalue="w:h" />
+            <item index="7" class="java.lang.String" itemvalue="w:pos" />
+            <item index="8" class="java.lang.String" itemvalue="w:z" />
+            <item index="9" class="java.lang.String" itemvalue="w:w" />
+            <item index="10" class="java.lang.String" itemvalue="w:max-w" />
+            <item index="11" class="java.lang.String" itemvalue="w:bg" />
+            <item index="12" class="java.lang.String" itemvalue="w:transition" />
+            <item index="13" class="java.lang.String" itemvalue="w:case" />
+            <item index="14" class="java.lang.String" itemvalue="w:p" />
+            <item index="15" class="java.lang.String" itemvalue="w:border" />
+            <item index="16" class="java.lang.String" itemvalue="w:cursor" />
+            <item index="17" class="java.lang.String" itemvalue="w:hover" />
+            <item index="18" class="java.lang.String" itemvalue="w:m" />
+            <item index="19" class="java.lang.String" itemvalue="w:line" />
+            <item index="20" class="java.lang.String" itemvalue="w:overflow" />
+            <item index="21" class="java.lang.String" itemvalue="w:scrollbar" />
+            <item index="22" class="java.lang.String" itemvalue="w:outline" />
+            <item index="23" class="java.lang.String" itemvalue="w:xl" />
+            <item index="24" class="java.lang.String" itemvalue="w:lg" />
+            <item index="25" class="java.lang.String" itemvalue="w:md" />
+            <item index="26" class="java.lang.String" itemvalue="w:sm" />
           </list>
         </value>
       </option>

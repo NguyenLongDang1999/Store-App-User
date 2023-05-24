@@ -1,8 +1,5 @@
 <script setup lang="ts">
 
-// ** MazUI Imports
-import MazDrawer from 'maz-ui/components/MazDrawer'
-
 // ** Utils Imports
 import navItems from '~~/utils/navigations'
 
@@ -20,7 +17,6 @@ defineProps<Props>()
 const emits = defineEmits<Emits>()
 
 // ** useHooks
-const localePath = useLocalePath()
 const route = useRoute()
 
 // ** Watch
@@ -28,38 +24,95 @@ watch(route, () => emits('update:modelValue', false), { deep: true, immediate: t
 </script>
 
 <template>
-    <MazDrawer
-        variant="left"
-        :model-value="modelValue"
-        size="320px"
-        @update:model-value="emits('update:modelValue', false)"
-    >
-        <template #title>
-            <NuxtLink
-                to="/"
-                class="flex-none text-xl font-semibold"
-            >
-                MENU
-            </NuxtLink>
-        </template>
+    <Teleport to="body">
+        <TheOverplay
+            :show-overplay="modelValue"
+            @click="emits('update:modelValue', false)"
+        />
 
-        <template #default>
-            <nav class="p-6 w-full flex flex-col flex-wrap">
-                <ul class="space-y-1.5">
+        <Transition name="menu">
+            <TheSidebar
+                v-if="modelValue"
+                position="left"
+                :close="() => emits('update:modelValue', false)"
+                :title="$t('Menu.Name')"
+            >
+                <ul
+                    w:display="flex"
+                    w:flex="col"
+                    w:grid="gap-6"
+                >
                     <li
                         v-for="nav in navItems"
                         :key="nav.to"
                     >
                         <NuxtLink
-                            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md capitalize"
                             :to="localePath({ name: nav.name })"
-                            active-class="bg-gray-100"
+                            w:font="tracking-wider semibold"
+                            w:text="black"
+                            w:case="capital"
+                            w:transition="text duration-300 ease-in-out"
+                            w:hover="text-blue-600"
+                            active-class="!text-blue-600"
                         >
                             {{ $t(`Navigation.${nav.title}`) }}
                         </NuxtLink>
                     </li>
+
+                    <li
+                        w:border="t-1 gray-200"
+                        w:text="lg"
+                        w:m="b-4 t-10"
+                        w:case="upper"
+                        w:font="medium"
+                    >
+                        <h6 w:p="t-5">
+                            {{ $t('Support') }}
+                        </h6>
+
+                        <div w:m="t-4">
+                            <div
+                                w:display="flex"
+                                w:flex="items-center"
+                                w:grid="gap-3"
+                            >
+                                <Icon
+                                    name="mdi:phone-outline"
+                                    size="28"
+                                />
+
+                                <span>038 9747 179</span>
+                            </div>
+
+                            <div
+                                w:m="t-4"
+                                w:display="flex"
+                                w:flex="items-center"
+                                w:grid="gap-3"
+                            >
+                                <Icon
+                                    name="mdi:envelope-outline"
+                                    size="28"
+                                />
+
+                                <span w:case="lower">longdang0412@gmail.com</span>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-            </nav>
-        </template>
-    </MazDrawer>
+            </TheSidebar>
+        </Transition>
+    </Teleport>
 </template>
+
+<style lang="scss" scoped>
+.menu-enter-active,
+.menu-leave-active {
+    transition: transform 0.5s ease;
+}
+
+.menu-enter-from,
+.menu-leave-to {
+    transform: translateX(-104%);
+}
+</style>

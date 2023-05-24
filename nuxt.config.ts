@@ -4,24 +4,18 @@ export default defineNuxtConfig({
         '@nuxt/devtools',
         '@nuxt/image-edge',
         '@nuxtjs/i18n',
-        '@nuxtjs/tailwindcss',
         '@nuxtjs/google-fonts',
         '@vueuse/nuxt',
         'nuxt-icon',
         'nuxt-viewport',
+        '@unocss/nuxt',
+        'nuxt-swiper',
         [
             '@pinia/nuxt', {
                 autoImports: ['defineStore', 'storeToRefs']
             }
         ]
     ],
-    css: [
-        'maz-ui/css/main.css',
-        '@/assets/main.scss'
-    ],
-    build: {
-        transpile: ['maz-ui']
-    },
     app: {
         pageTransition: {
             name: 'page',
@@ -32,9 +26,15 @@ export default defineNuxtConfig({
         prefetch: true,
         preconnect: true,
         families: {
-            'Public Sans': [300, 400, 500, 600, 700]
+            'Quicksand': [300, 400, 500, 600, 700]
         }
     },
+    unocss: {
+        preflight: true
+    },
+    css: [
+        '@unocss/reset/tailwind.css'
+    ],
     i18n: {
         locales: [
             {
@@ -85,7 +85,7 @@ export default defineNuxtConfig({
             md: 768,
             lg: 992,
             xl: 1200,
-            '2xl': 1450
+            '2xl': 1400
         },
         cookieName: 'viewport',
         defaultBreakpoints: {

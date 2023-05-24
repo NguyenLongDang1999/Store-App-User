@@ -1,15 +1,23 @@
 <template>
-    <Head>
-        <Title>Nuxivy</Title>
+    <Html lang="vi">
+        <Head>
+            <Title>{{ config.title }}</Title>
 
-        <Body class="my-0 mx-auto bg-white text-sm font-normal leading-[1.625] tracking-[.4px] relative text-[#777] min-h-full overflow-x-hidden">
-            <NuxtLayout>
-                <NuxtPage />
-            </NuxtLayout>
-        </Body>
-    </Head>
+            <Body
+                w:m="0"
+                w:bg="white"
+                w:pos="relative"
+                w:overflow="x-hidden"
+                w:text="sm [#333] left"
+                class="font-sans"
+            >
+                <NuxtLayout>
+                    <NuxtPage />
+                </NuxtLayout>
+            </Body>
+        </Head>
+    </Html>
 </template>
-
 
 <style lang="scss">
 .page-enter-active,

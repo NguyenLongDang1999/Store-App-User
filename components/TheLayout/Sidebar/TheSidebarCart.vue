@@ -1,8 +1,5 @@
 <script setup lang="ts">
 
-// ** MazUI Imports
-import MazDrawer from 'maz-ui/components/MazDrawer'
-
 // ** Props & Emits
 interface Props {
     modelValue: boolean
@@ -15,55 +12,120 @@ interface Emits {
 defineProps<Props>()
 
 const emits = defineEmits<Emits>()
+
+// ** Data
+const cartData = reactive([
+    {
+        id: 1,
+        category: 'Category 1',
+        name: 'Product Bạn đã được MIỄN PHÍ VẬN CHUYỂN 1',
+        qty: '1',
+        price: '30.000đ'
+    },
+    {
+        id: 2,
+        category: 'Category 2',
+        name: 'Product Áo len dài tay 2',
+        qty: '4',
+        price: '60.000đ'
+    }
+])
 </script>
 
 <template>
-    <MazDrawer
-        variant="right"
-        :model-value="modelValue"
-        size="350px"
-        @update:model-value="emits('update:modelValue', false)"
-    >
-        <template #title>
-            <h3 class="font-semibold text-gray-700 text-sm uppercase">
-                {{ $t('Cart.Title') }}
-            </h3>
-        </template>
+    <Teleport to="body">
+        <TheOverplay
+            :show-overplay="modelValue"
+            @click="emits('update:modelValue', false)"
+        />
 
-        <template #default>
-            <div class="p-4">
-                <ul>
-                    <li
-                        v-for="item in 10"
-                        :key="item"
+        <Transition name="sidebar">
+            <TheSidebar
+                v-if="modelValue"
+                :close="() => emits('update:modelValue', false)"
+                :title="$t('Cart.Title')"
+            >
+                <div v-if="cartData.length">
+                    <ul
+                        w:display="flex"
+                        w:flex="col"
+                        w:grid="gap-3"
+                        w:h="screen"
+                        w:overflow="y-auto"
+                        w:scrollbar="~ track-radius-10px track-margin-left-10px w-4px h-3px radius-10px"
                     >
-                        <BaseProductItem :product="item" />
-                    </li>
-                </ul>
+                        <li
+                            v-for="item in cartData"
+                            :key="item.id"
+                            w:border="b-1 b-gray-100"
+                            w:p="b-3"
+                        >
+                            <BaseProductCartItem :product="item" />
+                        </li>
+                    </ul>
 
-                <ul class="mt-5">
-                    <li class="flex justify-between text-[16px]">
-                        <span class="capitalize">{{ $t('Cart.Total') }}</span>
-                        <span class="font-semibold">300.000đ</span>
-                    </li>
-                </ul>
-
-                <div class="flex gap-3 justify-between mt-5">
-                    <button
-                        type="button"
-                        class="py-3 px-4 w-1/2 rounded-md border capitalize border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm"
+                    <div
+                        w:pos="sticky bottom-0"
+                        w:w="full"
+                        w:bg="white"
+                        w:p="t-5"
+                        w:border="t-1 t-gray-200"
                     >
-                        {{ $t('Cart.View') }}
-                    </button>
+                        <div
+                            w:display="flex"
+                            w:flex="items-center justify-between"
+                        >
+                            <span
+                                w:case="upper"
+                                w:text="16px"
+                                w:font="medium"
+                            >
+                                {{ $t('Cart.Total') }}
+                            </span>
 
-                    <button
-                        type="button"
-                        class="py-3 px-4 w-1/2 rounded-md capitalize border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm"
-                    >
-                        {{ $t('Cart.Checkout') }}
-                    </button>
+                            <span
+                                w:text="xl blue-600"
+                                w:font="semibold"
+                            >
+                                300.000đ
+                            </span>
+                        </div>
+
+                        <div
+                            w:display="flex"
+                            w:grid="gap-3"
+                        >
+                            <BaseFormButton
+                                :text="$t('Cart.View')"
+                                w:bg="blue-600 hover:blue-700"
+                                w:text="white"
+                                block
+                            />
+
+                            <BaseFormButton
+                                :text="$t('Cart.Checkout')"
+                                w:bg="red-600 hover:red-700"
+                                w:text="white"
+                                block
+                            />
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </template>
-    </MazDrawer>
+
+                <BaseEmptyCart v-else />
+            </TheSidebar>
+        </Transition>
+    </Teleport>
 </template>
+
+<style lang="scss" scoped>
+.sidebar-enter-active,
+.sidebar-leave-active {
+    transition: transform 0.5s ease;
+}
+
+.sidebar-enter-from,
+.sidebar-leave-to {
+    transform: translateX(104%);
+}
+</style>

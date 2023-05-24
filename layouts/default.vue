@@ -1,12 +1,7 @@
 <template>
-    <header class="border-b border-solid border-b-[#eee]">
-        <TheHeaderTop />
-        <TheHeaderNavbar />
-    </header>
+    <TheHeader />
 
-    <main class="mt-10">
+    <main>
         <slot />
     </main>
-
-    <TheToolbarMenu />
 </template>

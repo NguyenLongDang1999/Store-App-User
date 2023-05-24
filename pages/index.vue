@@ -1,6 +1,5 @@
 <template>
     <div>
-        <HomePageCarousel />
-        <HomePageProduct />
+        <HomePageSlider />
     </div>
 </template>

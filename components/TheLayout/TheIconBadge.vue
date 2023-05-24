@@ -2,8 +2,7 @@
 
 // ** Props & Emits
 interface Props {
-    name: string
-    size: string
+    iconName: string
     count?: number
 }
 
@@ -11,17 +10,29 @@ defineProps<Props>()
 </script>
 
 <template>
-    <div class="flex flex-col cursor-pointer">
+    <div
+        w:p="2"
+        w:pos="relative"
+        w:cursor="pointer"
+        w:border="rounded-full"
+        w:hover="bg-blue-600 text-white"
+        w:transition="~"
+        v-bind="$attrs"
+    >
         <Icon
-            :name="name"
-            :size="size"
+            :name="iconName"
+            size="28"
         />
 
         <span
             v-if="count"
-            class="text-[10px] text-white text-center bg-primary-500 rounded-xl font-semibold absolute z-20 h-4 min-w-[16px] leading-4 -top-1 -right-2"
-        >
-            {{ count }}
-        </span>
+            w:pos="absolute top-0 right-0"
+            w:w="5"
+            w:h="5"
+            w:bg="blue-600"
+            w:text="white 11px center"
+            w:border="rounded-full 2px white"
+            w:font="leading-4"
+        >{{ count }}</span>
     </div>
 </template>
