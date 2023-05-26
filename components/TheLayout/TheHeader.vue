@@ -16,6 +16,11 @@ const showCart = ref<boolean>(false)
         w:h="20"
         w:display="flex"
         w:flex="items-center"
+        w:bg="white"
+        w:pos="fixed top-0"
+        w:border="b-1 b-gray-200"
+        w:w="full"
+        w:z="1000"
     >
         <TheContainer>
             <div

@@ -1,3 +1,9 @@
+<script setup lang="ts">
+
+// ** Data
+const showProduct = ref<boolean>(false)
+</script>
+
 <template>
     <div
         w:display="flex"
@@ -55,6 +61,7 @@
                     w:transition="~"
                     w:hover:bg="gray-800"
                     w:cursor="pointer"
+                    @click="showProduct = true"
                 >
                     <Icon
                         name="mdi:eye-outline"
@@ -82,11 +89,11 @@
             </ul>
         </div>
 
-        <p
-            w:line="line-clamp-1"
-            w:font="normal"
-        >
-            <NuxtLink v-tooltip.bottom="'Category'">
+        <p w:font="normal">
+            <NuxtLink
+                v-tooltip.bottom="'Category'"
+                w:line="line-clamp-1"
+            >
                 Category
             </NuxtLink>
         </p>
@@ -115,8 +122,7 @@
                 w:font="normal"
             >900.000đ</span>
         </div>
+
+        <LazyBaseDialogQuickView v-model="showProduct" />
     </div>
 </template>
-
-<script setup>
-</script>

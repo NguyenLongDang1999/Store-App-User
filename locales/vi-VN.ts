@@ -25,7 +25,12 @@ export default {
     Product: {
         News: 'Sản phẩm mới nhất',
         Popular: 'Sản phẩm nổi bật',
-        Sale: 'Sản phẩm khuyến mãi'
+        Sale: 'Sản phẩm khuyến mãi',
+        Sku: 'Mã sản phẩm',
+        Status: 'Tình trạng',
+        Brand: 'Thương hiệu',
+        Category: 'Danh mục',
+        Price: 'Giá'
     },
     Error: {
         PageNotFound: 'Page Not Found'
@@ -46,6 +51,25 @@ export default {
         Minute: 'Phút',
         Second: 'Giây'
     },
+    Service: {
+        Freeship: {
+            Title: 'Miễn phí vận chuyển',
+            Content: 'Miễn phí đơn hàng từ 500k'
+        },
+        Returns: {
+            Title: 'Đổi trả dễ dàng',
+            Content: 'Đổi trả hàng sau 7 ngày nếu không vừa ý'
+        },
+        Support: {
+            Title: 'Hỗ trợ 24/7',
+            Content: 'Gọi hotline để được tư vấn'
+        },
+        Checkout: {
+            Title: 'Thanh toán đa dạng',
+            Content: 'Nhiều phương thức thanh toán đa dạng linh động'
+        }
+    },
+    ViewMore: 'Xem Thêm',
     Support: 'Hỗ trợ',
     QuickView: 'Xem nhanh'
 }

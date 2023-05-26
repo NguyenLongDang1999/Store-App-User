@@ -3,5 +3,7 @@
         <HomePageSlider />
         <HomePageCategory />
         <LazyHomePageProductSale />
+        <LazyHomePageProductNew />
+        <LazyHomePageProductPopular />
     </div>
 </template>

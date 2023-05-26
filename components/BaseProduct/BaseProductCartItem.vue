@@ -92,6 +92,3 @@ defineProps<Props>()
         </div>
     </div>
 </template>
-
-<script setup>
-</script>

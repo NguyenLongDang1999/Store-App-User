@@ -1,7 +1,9 @@
 <template>
     <TheHeader />
 
-    <main>
+    <main w:m="t-20">
         <slot />
+
+        <LazyBaseComponentService />
     </main>
 </template>

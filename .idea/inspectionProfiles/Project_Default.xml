@@ -5,7 +5,7 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="31">
+          <list size="32">
             <item index="0" class="java.lang.String" itemvalue="not-last" />
             <item index="1" class="java.lang.String" itemvalue="w:grid" />
             <item index="2" class="java.lang.String" itemvalue="w:display" />
@@ -37,6 +37,7 @@
             <item index="28" class="java.lang.String" itemvalue="w:transform" />
             <item index="29" class="java.lang.String" itemvalue="w:hover:bg" />
             <item index="30" class="java.lang.String" itemvalue="w:opacity" />
+            <item index="31" class="java.lang.String" itemvalue="w:min-h" />
           </list>
         </value>
       </option>
@@ -45,7 +46,7 @@
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="7">
+          <list size="8">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -53,6 +54,7 @@
             <item index="4" class="java.lang.String" itemvalue="embed" />
             <item index="5" class="java.lang.String" itemvalue="script" />
             <item index="6" class="java.lang.String" itemvalue="elformitem" />
+            <item index="7" class="java.lang.String" itemvalue="hr" />
           </list>
         </value>
       </option>
