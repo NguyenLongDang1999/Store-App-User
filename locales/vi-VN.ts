@@ -24,7 +24,8 @@ export default {
     },
     Product: {
         News: 'Sản phẩm mới nhất',
-        Popular: 'Sản phẩm nổi bật'
+        Popular: 'Sản phẩm nổi bật',
+        Sale: 'Sản phẩm khuyến mãi'
     },
     Error: {
         PageNotFound: 'Page Not Found'
@@ -38,6 +39,12 @@ export default {
     },
     Menu: {
         Name: 'Menu'
+    },
+    Date: {
+        Day: 'Ngày',
+        Hour: 'Giờ',
+        Minute: 'Phút',
+        Second: 'Giây'
     },
     Support: 'Hỗ trợ',
     QuickView: 'Xem nhanh'

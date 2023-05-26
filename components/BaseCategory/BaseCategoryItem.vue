@@ -17,22 +17,26 @@
             w:w="full"
             w:p="x-5 y-4"
             w:bg="gray-100"
-            w:line="clamp-1"
         >
             <h3
+                w:w="75"
                 w:text="lg"
                 w:font="semibold"
                 w:case="capital"
+                w:line="clamp-1"
             >
-                Category
+                Category Lorem lit.one sunt voluptatibus! Soluta, veniam.
             </h3>
 
-            <Icon
-                name="mdi:arrow-right"
-                size="22"
+            <div
+                class="group-hover:bg-black group-hover:text-white rounded-full p-2"
                 w:transition="~"
-                class="group-hover:bg-black group-hover:text-white rounded-full"
-            />
+            >
+                <Icon
+                    name="mdi:arrow-right"
+                    size="24"
+                />
+            </div>
         </div>
     </NuxtLink>
 </template>
