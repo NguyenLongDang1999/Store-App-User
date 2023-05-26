@@ -198,6 +198,26 @@ const swiper = ref<SwiperOptions | null>(null)
                                             w:case="capital"
                                         >Thương hiệu 1</span>
                                     </li>
+
+                                    <li
+                                        w:display="flex"
+                                        w:flex="items-center"
+                                        w:grid="gap-3"
+                                    >
+                                        <span>{{ $t('Product.Price') }}:</span>
+                                        <span
+                                            w:font="bold"
+                                            w:case="capital"
+                                            w:text="blue-600 xl"
+                                        >500.000đ</span>
+
+                                        <span
+                                            w:font="semibold"
+                                            w:case="capital"
+                                            w:text="red-600"
+                                            w:decoration="line-through"
+                                        >800.000đ</span>
+                                    </li>
                                 </ul>
 
                                 <div
