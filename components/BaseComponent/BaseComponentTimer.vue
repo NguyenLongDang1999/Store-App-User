@@ -8,13 +8,13 @@ interface Props {
 const props = defineProps<Props>()
 
 // ** Data
-const currentTime = ref<number>(Date.parse(props.deadline) - Date.parse(new Date().toString()))
+const currentTime = ref<number | null>(Date.parse(props.deadline) - Date.parse(new Date().toString()))
 
 // ** Computed
-const days = computed(() => Math.floor(currentTime.value / (1000 * 60 * 60 * 24)))
-const hours = computed(() => Math.floor((currentTime.value / (1000 * 60 * 60)) % 24))
-const seconds = computed(() => Math.floor((currentTime.value / 1000) % 60))
-const minutes = computed(() => Math.floor((currentTime.value / 1000 / 60) % 60))
+const days = computed(() => Math.floor(Number(currentTime.value) / (1000 * 60 * 60 * 24)))
+const hours = computed(() => Math.floor((Number(currentTime.value) / (1000 * 60 * 60)) % 24))
+const seconds = computed(() => Math.floor((Number(currentTime.value) / 1000) % 60))
+const minutes = computed(() => Math.floor((Number(currentTime.value) / 1000 / 60) % 60))
 
 // ** Lifecycle
 onMounted(() => setTimeout(countdown, 1000))

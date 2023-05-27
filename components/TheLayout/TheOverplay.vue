@@ -13,7 +13,7 @@ defineProps<Props>()
         <div
             v-if="showOverplay"
             w:pos="fixed top-0 bottom-0 left-0 right-0"
-            w:z="999"
+            w:z="1001"
             w:bg="black opacity-40"
             v-bind="$attrs"
         />

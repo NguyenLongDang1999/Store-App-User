@@ -32,7 +32,7 @@ const swiper = ref<SwiperOptions | null>(null)
                             {{ $t('Product.Sale') }}
                         </h2>
 
-                        <BaseComponentTimer deadline="2023-05-27" />
+                        <BaseComponentTimer deadline="2023-05-28" />
                     </div>
                 </div>
 
