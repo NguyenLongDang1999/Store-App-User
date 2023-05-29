@@ -34,6 +34,9 @@ export default defineNuxtConfig({
     css: [
         '@unocss/reset/tailwind.css'
     ],
+    image: {
+        dir: 'assets'
+    },
     i18n: {
         locales: [
             {
@@ -83,6 +86,12 @@ export default defineNuxtConfig({
             useIconCDN: true,
             styles: 'sass',
             autoImport: true
+        }
+    },
+    runtimeConfig: {
+        public: {
+            apiBase: process.env.NUXT_PUBLIC_API_BASE,
+            previewCdn: process.env.NUXT_PUBLIC_BUNNY_CDN_URL
         }
     }
 })

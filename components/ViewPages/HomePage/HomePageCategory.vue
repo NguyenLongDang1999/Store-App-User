@@ -6,6 +6,7 @@ import { useDisplay } from 'vuetify'
 
 // ** useHooks
 const { thresholds } = useDisplay()
+const { categoryList } = useCategoryList()
 
 // ** Data
 const swiper = ref<SwiperOptions | null>(null)
@@ -93,10 +94,10 @@ const swiper = ref<SwiperOptions | null>(null)
                         @swiper="(s) => swiper = s"
                     >
                         <SwiperSlide
-                            v-for="slide in 10"
-                            :key="slide"
+                            v-for="category in categoryList"
+                            :key="category.id"
                         >
-                            <BaseCategoryItem />
+                            <BaseCategoryItem :category="category" />
                         </SwiperSlide>
                     </Swiper>
                 </VCol>

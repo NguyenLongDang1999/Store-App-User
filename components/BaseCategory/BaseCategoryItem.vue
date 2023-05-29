@@ -1,3 +1,16 @@
+<script setup lang="ts">
+
+// ** Types Imports
+import type { ICategoryList } from '~/types/category.type'
+
+// ** Props & Emits
+interface Props {
+    category: ICategoryList
+}
+
+defineProps<Props>()
+</script>
+
 <template>
     <NuxtLink
         w:pos="relative"
@@ -5,7 +18,7 @@
     >
         <NuxtImg
             src="https://placehold.co/400x600/EEE/31343C"
-            alt="Category"
+            :alt="category.name"
             width="400"
             height="600"
         />
@@ -25,7 +38,7 @@
                 w:case="capital"
                 w:line="clamp-1"
             >
-                Category Lorem lit.one sunt voluptatibus! Soluta, veniam.
+                {{ category.name }}
             </h3>
 
             <div
