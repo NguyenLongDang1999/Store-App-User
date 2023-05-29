@@ -1,14 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     modules: [
+        '@unocss/nuxt',
+        '@invictus.codes/nuxt-vuetify',
         '@nuxt/devtools',
         '@nuxt/image-edge',
         '@nuxtjs/i18n',
         '@nuxtjs/google-fonts',
         '@vueuse/nuxt',
-        'nuxt-icon',
-        'nuxt-viewport',
-        '@unocss/nuxt',
         'nuxt-swiper',
         [
             '@pinia/nuxt', {
@@ -78,21 +77,12 @@ export default defineNuxtConfig({
             pathPrefix: false
         }
     ],
-    viewport: {
-        breakpoints: {
-            xs: 450,
-            sm: 576,
-            md: 768,
-            lg: 992,
-            xl: 1200,
-            '2xl': 1400
-        },
-        cookieName: 'viewport',
-        defaultBreakpoints: {
-            desktop: 'lg',
-            mobile: 'sm',
-            tablet: 'md'
-        },
-        fallbackBreakpoint: 'lg'
+    vuetify: {
+        moduleOptions: {
+            treeshaking: true,
+            useIconCDN: true,
+            styles: 'sass',
+            autoImport: true
+        }
     }
 })

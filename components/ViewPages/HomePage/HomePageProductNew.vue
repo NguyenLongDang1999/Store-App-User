@@ -1,9 +1,9 @@
 <template>
     <section w:m="t-30">
-        <TheContainer>
+        <VContainer>
             <div w:text="center">
                 <h2
-                    w:text="md:4xl 2xl"
+                    w:text="md:3xl 2xl"
                     w:case="capital"
                     w:font="semibold"
                 >
@@ -12,15 +12,18 @@
             </div>
 
             <div w:m="t-10">
-                <div w:grid="~ cols-12 gap-4">
-                    <div
+                <VRow>
+                    <VCol
                         v-for="slide in 12"
                         :key="slide"
-                        w:grid="xl:col-span-2 lg:col-span-3 md:col-span-4 col-span-6"
+                        lg="2"
+                        md="3"
+                        sm="4"
+                        cols="6"
                     >
                         <BaseProductCard />
-                    </div>
-                </div>
+                    </VCol>
+                </VRow>
             </div>
 
             <div
@@ -35,6 +38,6 @@
                     {{ $t('ViewMore') }}
                 </NuxtLink>
             </div>
-        </TheContainer>
+        </VContainer>
     </section>
 </template>

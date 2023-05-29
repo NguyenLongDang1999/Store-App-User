@@ -1,10 +1,13 @@
 <script setup lang="ts">
 
+// ** Third Party Imports
+import { useDisplay } from 'vuetify'
+
 // ** Utils Imports
 import navItems from '~~/utils/navigations'
 
 // ** useHooks
-const { isGreaterOrEquals } = useViewport()
+const { lgAndUp } = useDisplay()
 
 // ** Data
 const showMenu = ref<boolean>(false)
@@ -13,48 +16,46 @@ const showCart = ref<boolean>(false)
 
 <template>
     <header
-        w:h="20"
-        w:display="flex"
-        w:flex="items-center"
         w:bg="white"
-        w:pos="fixed top-0"
         w:border="b-1 b-gray-200"
-        w:w="full"
-        w:z="1000"
     >
-        <TheContainer>
-            <div
-                w:grid="~ cols-8"
-                w:flex="items-center"
-            >
-                <div w:grid="lg:col-span-2 col-span-4">
+        <VContainer class="fill-height py-3">
+            <VRow align="center">
+                <VCol lg="2">
                     <div
                         w:display="flex"
                         w:flex="items-center"
                     >
-                        <TheIconBadge
-                            v-if="!isGreaterOrEquals('lg')"
-                            v-tooltip="$t('Menu.Name')"
-                            icon-name="mdi:view-headline"
-                            w:m="r-2"
-                            w:cursor="pointer"
-                            @click="showMenu = true"
-                        />
-
-                        <h1
-                            w:font="bold"
-                            w:text="26px"
+                        <VTooltip
+                            location="bottom"
+                            :text="$t('Menu.Name')"
                         >
-                            <NuxtLink to="/">
-                                {{ config.title }}
-                            </NuxtLink>
-                        </h1>
-                    </div>
-                </div>
+                            <template #activator="{ props }">
+                                <TheIconBadge
+                                    v-if="!lgAndUp"
+                                    v-bind="props"
+                                    icon="mdi:mdi-view-headline"
+                                    w:m="r-2"
+                                    @click="showMenu = true"
+                                />
+                            </template>
+                        </VTooltip>
 
-                <div
-                    v-if="isGreaterOrEquals('lg')"
-                    w:grid="col-span-4"
+                        <NuxtLink to="/">
+                            <h1
+                                w:cursor="pointer"
+                                w:font="!bold"
+                                w:text="!26px"
+                            >
+                                {{ config.title }}
+                            </h1>
+                        </NuxtLink>
+                    </div>
+                </VCol>
+
+                <VCol
+                    v-if="lgAndUp"
+                    lg="8"
                 >
                     <ul
                         w:display="flex"
@@ -78,47 +79,75 @@ const showCart = ref<boolean>(false)
                             </NuxtLink>
                         </li>
                     </ul>
-                </div>
+                </VCol>
 
-                <div w:grid="lg:col-span-2 col-span-4">
+                <VCol lg="2">
                     <ul
                         w:display="flex"
                         w:flex="justify-end"
                     >
                         <li>
-                            <TheIconBadge
-                                v-tooltip="$t('Search.Product')"
-                                icon-name="mdi:magnify"
-                            />
+                            <VTooltip
+                                location="bottom"
+                                :text="$t('Search.Product')"
+                            >
+                                <template #activator="{ props }">
+                                    <TheIconBadge
+                                        v-bind="props"
+                                        icon="mdi:mdi-magnify"
+                                    />
+                                </template>
+                            </VTooltip>
                         </li>
 
                         <li>
-                            <TheIconBadge
-                                v-tooltip="$t('Auth.Name')"
-                                icon-name="mdi:account-outline"
-                            />
+                            <VTooltip
+                                location="bottom"
+                                :text="$t('Auth.Name')"
+                            >
+                                <template #activator="{ props }">
+                                    <TheIconBadge
+                                        v-bind="props"
+                                        icon="mdi:mdi-account-outline"
+                                    />
+                                </template>
+                            </VTooltip>
                         </li>
 
                         <li>
-                            <TheIconBadge
-                                v-tooltip="$t('WishList.Product')"
-                                icon-name="mdi:heart-outline"
-                                :count="3"
-                            />
+                            <VTooltip
+                                location="bottom"
+                                :text="$t('WishList.Product')"
+                            >
+                                <template #activator="{ props }">
+                                    <TheIconBadge
+                                        v-bind="props"
+                                        icon="mdi:mdi-heart-outline"
+                                        :count="3"
+                                    />
+                                </template>
+                            </VTooltip>
                         </li>
 
                         <li>
-                            <TheIconBadge
-                                v-tooltip="$t('Cart.Title')"
-                                icon-name="mdi:shopping-outline"
-                                :count="4"
-                                @click="showCart = true"
-                            />
+                            <VTooltip
+                                location="bottom"
+                                :text="$t('Cart.Title')"
+                            >
+                                <template #activator="{ props }">
+                                    <TheIconBadge
+                                        v-bind="props"
+                                        icon="mdi:mdi-shopping-outline"
+                                        :count="4"
+                                        @click="showCart = true"
+                                    />
+                                </template>
+                            </VTooltip>
                         </li>
                     </ul>
-                </div>
-            </div>
-        </TheContainer>
+                </VCol>
+            </VRow>
+        </VContainer>
 
         <LazyTheSidebarMenu v-model="showMenu" />
         <LazyTheSidebarCart v-model="showCart" />

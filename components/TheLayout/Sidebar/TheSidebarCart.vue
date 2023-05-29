@@ -1,6 +1,8 @@
 <script setup lang="ts">
 
 // ** Props & Emits
+import navItems from '~/utils/navigations'
+
 interface Props {
     modelValue: boolean
 }
@@ -14,118 +16,119 @@ defineProps<Props>()
 const emits = defineEmits<Emits>()
 
 // ** Data
-const cartData = reactive([
-    {
-        id: 1,
-        category: 'Category 1',
-        name: 'Product Bạn đã được MIỄN PHÍ VẬN CHUYỂN 1',
-        qty: '1',
-        price: '30.000đ'
-    },
-    {
-        id: 2,
-        category: 'Category 2',
-        name: 'Product Áo len dài tay 2',
-        qty: '4',
-        price: '60.000đ'
-    }
-])
+const cartData = reactive([])
 </script>
 
 <template>
-    <Teleport to="body">
-        <TheOverplay
-            :show-overplay="modelValue"
-            @click="emits('update:modelValue', false)"
-        />
-
-        <Transition name="sidebar">
-            <TheSidebar
-                v-if="modelValue"
-                :close="() => emits('update:modelValue', false)"
-                :title="$t('Cart.Title')"
+    <VNavigationDrawer
+        temporary
+        width="480"
+        location="right"
+        :model-value="modelValue"
+        @update:model-value="emits('update:modelValue', false)"
+    >
+        <div
+            w:p="4"
+            w:display="flex"
+            w:flex="justify-between items-center"
+            w:border="b-1 b-gray-200"
+        >
+            <h3
+                w:case="capital"
+                w:font="semibold"
+                w:text="xl"
             >
-                <div v-if="cartData.length">
-                    <ul
-                        w:display="flex"
-                        w:flex="col"
-                        w:grid="gap-3"
-                        w:h="screen"
-                        w:overflow="y-auto"
-                        w:scrollbar="~ track-radius-10px track-margin-left-10px w-4px h-3px radius-10px"
-                    >
-                        <li
-                            v-for="item in cartData"
-                            :key="item.id"
-                            w:border="b-1 b-gray-100"
-                            w:p="b-3"
-                        >
-                            <BaseProductCartItem :product="item" />
-                        </li>
-                    </ul>
+                {{ $t('Cart.Title') }}
+            </h3>
 
+            <div
+                w:p="2"
+                w:cursor="pointer"
+                w:border="rounded-full"
+                w:hover="bg-blue-600 text-white"
+                w:transition="~"
+                @click="emits('update:modelValue', false)"
+            >
+                <VIcon
+                    icon="mdi:mdi-close"
+                    size="24"
+                />
+            </div>
+        </div>
+
+        <VDivider />
+
+        <div w:p="4">
+            <div v-if="cartData.length">
+                <ul
+                    w:display="flex"
+                    w:flex="col"
+                    w:grid="gap-3"
+                >
+                    <li
+                        v-for="item in cartData"
+                        :key="item.id"
+                        w:border="b-1 b-gray-100"
+                        w:p="b-3"
+                    >
+                        <BaseProductCartItem :product="item" />
+                    </li>
+                </ul>
+
+                <div
+                    w:w="full"
+                    w:bg="white"
+                    w:p="t-5"
+                    w:border="t-1 t-gray-200"
+                >
                     <div
-                        w:pos="sticky bottom-0"
-                        w:w="full"
-                        w:bg="white"
-                        w:p="t-5"
-                        w:border="t-1 t-gray-200"
+                        w:display="flex"
+                        w:flex="items-center justify-between"
+                        w:m="b-4"
                     >
-                        <div
-                            w:display="flex"
-                            w:flex="items-center justify-between"
+                        <span
+                            w:case="upper"
+                            w:text="16px"
+                            w:font="medium"
                         >
-                            <span
-                                w:case="upper"
-                                w:text="16px"
-                                w:font="medium"
-                            >
-                                {{ $t('Cart.Total') }}
-                            </span>
+                            {{ $t('Cart.Total') }}
+                        </span>
 
-                            <span
-                                w:text="xl blue-600"
-                                w:font="semibold"
-                            >
-                                300.000đ
-                            </span>
-                        </div>
-
-                        <div
-                            w:display="flex"
-                            w:grid="gap-3"
+                        <span
+                            w:text="xl blue-600"
+                            w:font="semibold"
                         >
-                            <BaseFormButton
-                                :text="$t('Cart.View')"
-                                w:bg="blue-600 hover:blue-700"
-                                w:text="white"
-                                block
-                            />
-
-                            <BaseFormButton
-                                :text="$t('Cart.Checkout')"
-                                w:bg="red-600 hover:red-700"
-                                w:text="white"
-                                block
-                            />
-                        </div>
+                            300.000đ
+                        </span>
                     </div>
+
+                    <VRow>
+                        <VCol cols="6">
+                            <VBtn
+                                :text="$t('Cart.View')"
+                                variant="elevated"
+                                w:case="!capital"
+                                color="blue"
+                                size="large"
+                                block
+                            />
+                        </VCol>
+
+                        <VCol cols="6">
+                            <VBtn
+                                :text="$t('Cart.Checkout')"
+                                variant="elevated"
+                                w:case="!capital"
+                                color="error"
+                                size="large"
+                                block
+                            />
+                        </VCol>
+                    </VRow>
                 </div>
+            </div>
 
-                <BaseEmptyCart v-else />
-            </TheSidebar>
-        </Transition>
-    </Teleport>
+            <BaseEmptyCart v-else />
+        </div>
+    </VNavigationDrawer>
 </template>
-
-<style lang="scss" scoped>
-.sidebar-enter-active,
-.sidebar-leave-active {
-    transition: transform 0.5s ease;
-}
-
-.sidebar-enter-from,
-.sidebar-leave-to {
-    transform: translateX(104%);
-}
-</style>

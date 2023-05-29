@@ -32,9 +32,9 @@
                 class="group-hover:bg-black group-hover:text-white rounded-full p-2"
                 w:transition="~"
             >
-                <Icon
-                    name="mdi:arrow-right"
-                    size="24"
+                <VIcon
+                    icon="mdi:mdi-arrow-right"
+                    size="22"
                 />
             </div>
         </div>

@@ -2,7 +2,7 @@
 
 // ** Props & Emits
 interface Props {
-    iconName: string
+    icon: string
     count?: number
 }
 
@@ -19,8 +19,8 @@ defineProps<Props>()
         w:transition="~"
         v-bind="$attrs"
     >
-        <Icon
-            :name="iconName"
+        <VIcon
+            :icon="icon"
             size="28"
         />
 

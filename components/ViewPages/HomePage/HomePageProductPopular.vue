@@ -4,43 +4,46 @@
         w:m="t-20"
         w:bg="blue-50/70"
     >
-        <TheContainer>
+        <VContainer>
             <div
                 w:display="flex"
                 w:flex="items-center justify-center wrap"
                 w:grid="gap-4"
             >
-                <Icon
-                    name="mdi:lightning-bolt-outline"
+                <VIcon
+                    icon="mdi:mdi-lightning-bolt-outline"
                     size="30"
                     w:text="red-500"
                 />
 
                 <h2
-                    w:text="md:4xl 2xl"
+                    w:text="md:3xl 2xl"
                     w:case="capital"
                     w:font="semibold"
                 >
                     {{ $t('Product.Popular') }}
                 </h2>
 
-                <Icon
-                    name="mdi:lightning-bolt-outline"
+                <VIcon
+                    icon="mdi:mdi-lightning-bolt-outline"
                     size="30"
                     w:text="red-500"
                 />
             </div>
 
             <div w:m="t-10">
-                <div w:grid="~ cols-12 gap-4">
-                    <div
+                <VRow>
+                    <VCol
                         v-for="slide in 6"
                         :key="slide"
-                        w:grid="xl:col-span-2 lg:col-span-3 md:col-span-4 col-span-6"
+                        lg="2"
+                        md="3"
+                        sm="4"
+                        cols="6"
                     >
                         <BaseProductCard />
-                    </div>
-                </div>
+                    </VCol>
+                </VRow>
             </div>
 
             <div
@@ -55,9 +58,6 @@
                     {{ $t('ViewMore') }}
                 </NuxtLink>
             </div>
-        </TheContainer>
+        </VContainer>
     </section>
 </template>
-
-<script setup>
-</script>

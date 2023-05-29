@@ -33,7 +33,6 @@ const showProduct = ref<boolean>(false)
                 w:group-hover:opacity="100"
             >
                 <li
-                    v-tooltip.top="$t('Cart.Add')"
                     w:border="rounded-full"
                     w:w="9"
                     w:h="9"
@@ -44,14 +43,13 @@ const showProduct = ref<boolean>(false)
                     w:hover:bg="gray-800"
                     w:cursor="pointer"
                 >
-                    <Icon
-                        name="mdi:shopping-outline"
+                    <VIcon
+                        icon="mdi:mdi-shopping-outline"
                         size="18"
                     />
                 </li>
 
                 <li
-                    v-tooltip.top="$t('QuickView')"
                     w:border="rounded-full"
                     w:w="9"
                     w:h="9"
@@ -63,14 +61,13 @@ const showProduct = ref<boolean>(false)
                     w:cursor="pointer"
                     @click="showProduct = true"
                 >
-                    <Icon
-                        name="mdi:eye-outline"
+                    <VIcon
+                        icon="mdi:mdi-eye-outline"
                         size="18"
                     />
                 </li>
 
                 <li
-                    v-tooltip.top="$t('WishList.Add')"
                     w:border="rounded-full"
                     w:w="9"
                     w:h="9"
@@ -81,8 +78,8 @@ const showProduct = ref<boolean>(false)
                     w:hover:bg="gray-800"
                     w:cursor="pointer"
                 >
-                    <Icon
-                        name="mdi:heart-outline"
+                    <VIcon
+                        icon="mdi:mdi-heart-outline"
                         size="18"
                     />
                 </li>
@@ -90,19 +87,13 @@ const showProduct = ref<boolean>(false)
         </div>
 
         <p w:font="normal">
-            <NuxtLink
-                v-tooltip.bottom="'Category'"
-                w:line="line-clamp-1"
-            >
+            <NuxtLink w:line="line-clamp-1">
                 Category
             </NuxtLink>
         </p>
 
         <h3 w:font="semibold">
-            <NuxtLink
-                v-tooltip.bottom="'Product'"
-                w:line="clamp-2"
-            >
+            <NuxtLink w:line="clamp-2">
                 Product Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci animi asperiores ea eligendi expedita hic illum, impedit magni molestiae quidem veniam, voluptates? Beatae eligendi eos est molestias rem ut veritatis.
             </NuxtLink>
         </h3>

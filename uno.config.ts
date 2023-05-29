@@ -1,10 +1,8 @@
 import { defineConfig, presetAttributify, presetWebFonts, presetUno } from 'unocss'
-import { presetScrollbar } from 'unocss-preset-scrollbar'
 
 export default defineConfig({
     presets: [
         presetUno(),
-        presetScrollbar(),
         presetAttributify({
             prefix: 'w:',
             prefixedOnly: true

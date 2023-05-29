@@ -26,8 +26,8 @@ const emits = defineEmits<Emits>()
             @click="emits('update:modelValue', Number(modelValue) - 1)"
         >
             <template #text>
-                <Icon
-                    name="mdi:minus"
+                <VIcon
+                    icon="mdi:mdi-minus"
                     size="20"
                     w:text="gray-500"
                 />
@@ -53,8 +53,8 @@ const emits = defineEmits<Emits>()
             @click="emits('update:modelValue', Number(modelValue) + 1)"
         >
             <template #text>
-                <Icon
-                    name="mdi:plus"
+                <VIcon
+                    icon="mdi:mdi-plus"
                     size="20"
                     w:text="gray-500"
                 />

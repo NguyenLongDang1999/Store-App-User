@@ -69,22 +69,21 @@ defineProps<Props>()
                     w:h="full"
                     w:flex="col items-end justify-between"
                 >
-                    <button
-                        v-tooltip.left="$t('Cart.Delete')"
-                        w:w="8"
-                        w:h="8"
-                        w:font="leading-4"
-                        w:border="rounded-full"
-                        w:bg="red-500"
-                        w:text="white center"
-                        w:hover="bg-red-600"
-                        w:transition="~"
+                    <VTooltip
+                        location="left"
+                        :text="$t('Cart.Delete')"
                     >
-                        <Icon
-                            name="mdi:trash-outline"
-                            size="16"
-                        />
-                    </button>
+                        <template #activator="{ props }">
+                            <VBtn
+                                color="red"
+                                size="large"
+                                v-bind="props"
+                                variant="tonal"
+                                density="compact"
+                                icon="mdi-delete-outline"
+                            />
+                        </template>
+                    </VTooltip>
 
                     <span w:font="semibold">{{ product.price }}</span>
                 </div>

@@ -9,7 +9,7 @@
                 w:pos="relative"
                 w:overflow="x-hidden"
                 w:text="sm [#333] left"
-                class="font-sans"
+                w:font="sans"
             >
                 <NuxtLayout>
                     <NuxtPage />

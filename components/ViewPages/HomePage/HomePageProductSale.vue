@@ -2,6 +2,10 @@
 
 // ** Third Party Imports
 import type { SwiperOptions } from 'swiper'
+import { useDisplay } from 'vuetify'
+
+// ** useHooks
+const { thresholds } = useDisplay()
 
 // ** Data
 const swiper = ref<SwiperOptions | null>(null)
@@ -13,30 +17,27 @@ const swiper = ref<SwiperOptions | null>(null)
         w:m="t-30"
         w:bg="blue-50/70"
     >
-        <TheContainer>
-            <div
-                w:grid="~ cols-3"
-                w:flex="justify-between"
-            >
-                <div w:grid="col-span-2">
+        <VContainer>
+            <VRow align="center">
+                <VCol cols="8">
                     <div
                         w:display="flex"
                         w:flex="items-center wrap"
                         w:grid="gap-4"
                     >
                         <h2
-                            w:text="md:4xl 2xl"
+                            w:text="md:3xl 2xl"
                             w:case="capital"
                             w:font="semibold"
                         >
                             {{ $t('Product.Sale') }}
                         </h2>
 
-                        <BaseComponentTimer deadline="2023-05-27" />
+                        <BaseComponentTimer deadline="2023-05-30" />
                     </div>
-                </div>
+                </VCol>
 
-                <div w:grid="col-span-1">
+                <VCol cols="4">
                     <div
                         w:display="flex"
                         w:flex="justify-end"
@@ -50,8 +51,8 @@ const swiper = ref<SwiperOptions | null>(null)
                             w:bg="hover:blue-600"
                             @click="swiper.slidePrev()"
                         >
-                            <Icon
-                                name="mdi:arrow-left"
+                            <VIcon
+                                icon="mdi:mdi-arrow-left"
                                 size="28"
                             />
                         </button>
@@ -64,30 +65,30 @@ const swiper = ref<SwiperOptions | null>(null)
                             w:bg="hover:blue-600"
                             @click="swiper.slideNext()"
                         >
-                            <Icon
-                                name="mdi:arrow-right"
+                            <VIcon
+                                icon="mdi:mdi-arrow-right"
                                 size="28"
                             />
                         </button>
                     </div>
-                </div>
-            </div>
+                </VCol>
+            </VRow>
 
             <div w:m="t-10">
                 <Swiper
                     :slides-per-view="2"
                     :space-between="10"
                     :breakpoints="{
-                        '768': {
+                        [thresholds.sm]: {
                             slidesPerView: 3,
                         },
-                        '992': {
+                        [thresholds.md]: {
                             slidesPerView: 4,
                         },
-                        '1200': {
+                        [thresholds.lg]: {
                             slidesPerView: 5,
                         },
-                        '1400': {
+                        [thresholds.xl]: {
                             slidesPerView: 6,
                         },
                     }"
@@ -114,6 +115,6 @@ const swiper = ref<SwiperOptions | null>(null)
                     {{ $t('ViewMore') }}
                 </NuxtLink>
             </div>
-        </TheContainer>
+        </vcontainer>
     </section>
 </template>

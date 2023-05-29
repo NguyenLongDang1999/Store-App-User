@@ -1,9 +1,11 @@
 <template>
-    <TheHeader />
+    <VApp>
+        <TheHeader />
 
-    <main w:m="t-20">
-        <slot />
+        <VMain>
+            <slot />
 
-        <LazyBaseComponentService />
-    </main>
+            <LazyBaseComponentService />
+        </VMain>
+    </VApp>
 </template>
