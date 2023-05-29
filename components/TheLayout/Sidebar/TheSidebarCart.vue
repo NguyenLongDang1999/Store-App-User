@@ -16,7 +16,71 @@ defineProps<Props>()
 const emits = defineEmits<Emits>()
 
 // ** Data
-const cartData = reactive([])
+const cartData = reactive([
+    {
+        id: 1,
+        category: 'Category 1',
+        name: 'Product Bạn đã được MIỄN PHÍ VẬN CHUYỂN 1',
+        qty: '1',
+        price: '30.000đ'
+    },
+    {
+        id: 2,
+        category: 'Category 2',
+        name: 'Product Áo len dài tay 2',
+        qty: '4',
+        price: '60.000đ'
+    },
+    {
+        id: 3,
+        category: 'Category 1',
+        name: 'Product Bạn đã được MIỄN PHÍ VẬN CHUYỂN 1',
+        qty: '1',
+        price: '30.000đ'
+    },
+    {
+        id: 4,
+        category: 'Category 2',
+        name: 'Product Áo len dài tay 2',
+        qty: '4',
+        price: '60.000đ'
+    },
+    {
+        id: 5,
+        category: 'Category 1',
+        name: 'Product Bạn đã được MIỄN PHÍ VẬN CHUYỂN 1',
+        qty: '1',
+        price: '30.000đ'
+    },
+    {
+        id: 6,
+        category: 'Category 2',
+        name: 'Product Áo len dài tay 2',
+        qty: '4',
+        price: '60.000đ'
+    },
+    {
+        id: 7,
+        category: 'Category 1',
+        name: 'Product Bạn đã được MIỄN PHÍ VẬN CHUYỂN 1',
+        qty: '1',
+        price: '30.000đ'
+    },
+    {
+        id: 8,
+        category: 'Category 2',
+        name: 'Product Áo len dài tay 2',
+        qty: '4',
+        price: '60.000đ'
+    },
+    {
+        id: 9,
+        category: 'Category 20',
+        name: 'Product Áo len dài tay 2',
+        qty: '4',
+        price: '60.000đ'
+    }
+])
 </script>
 
 <template>

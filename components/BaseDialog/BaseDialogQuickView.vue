@@ -137,7 +137,7 @@ const swiper = ref<SwiperOptions | null>(null)
                                 <li
                                     w:display="flex"
                                     w:flex="items-center"
-                                    w:grid="gap-3"
+                                    w:grid="gap-2"
                                 >
                                     <span>{{ $t('Product.Price') }}:</span>
                                     <span
@@ -161,12 +161,9 @@ const swiper = ref<SwiperOptions | null>(null)
                                 >
                                     <span>{{ $t('Product.Status') }}:</span>
                                     <span
+                                        w:text="blue-600"
                                         w:font="semibold"
                                         w:case="capital"
-                                        w:bg="blue-600"
-                                        w:text="white"
-                                        w:border="rounded-md"
-                                        w:p="y-2 x-4"
                                     >Còn hàng</span>
                                 </li>
 
@@ -206,10 +203,42 @@ const swiper = ref<SwiperOptions | null>(null)
 
                             <div
                                 w:text="medium"
-                                w:m="t-3"
+                                w:m="t-3 b-5"
                             >
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci animi assumenda corporis delectus, dolores ducimus est harum iste iusto non obcaecati, repellat reprehenderit voluptas voluptatibus. Assumenda laborum repudiandae velit!
                             </div>
+
+                            <VRow>
+                                <VCol
+                                    cols="12"
+                                    sm="6"
+                                >
+                                    <VBtn
+                                        :text="$t('Cart.Add')"
+                                        variant="elevated"
+                                        prepend-icon="mdi-shopping-outline"
+                                        w:case="!capital"
+                                        color="blue"
+                                        size="large"
+                                        block
+                                    />
+                                </VCol>
+
+                                <VCol
+                                    cols="12"
+                                    sm="6"
+                                >
+                                    <VBtn
+                                        :text="$t('WishList.Add')"
+                                        variant="elevated"
+                                        prepend-icon="mdi-heart-outline"
+                                        w:case="!capital"
+                                        color="error"
+                                        size="large"
+                                        block
+                                    />
+                                </VCol>
+                            </VRow>
                         </VCardText>
                     </VCol>
                 </VRow>

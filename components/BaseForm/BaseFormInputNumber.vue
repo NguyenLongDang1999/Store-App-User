@@ -19,20 +19,20 @@ const emits = defineEmits<Emits>()
         w:display="inline-flex"
         w:border="~ gray-100"
     >
-        <BaseFormButton
+        <button
             w:p="x-1"
             w:m="0"
+            w:transition="~"
             w:border="r-1 gray-100"
-            @click="emits('update:modelValue', Number(modelValue) - 1)"
+            type="button"
+            @click="emits('update:modelValue', String(Number(modelValue) - 1))"
         >
-            <template #text>
-                <VIcon
-                    icon="mdi:mdi-minus"
-                    size="20"
-                    w:text="gray-500"
-                />
-            </template>
-        </BaseFormButton>
+            <VIcon
+                icon="mdi:mdi-minus"
+                size="20"
+                w:text="gray-500"
+            />
+        </button>
 
         <input
             type="number"
@@ -46,19 +46,19 @@ const emits = defineEmits<Emits>()
             readonly
         >
 
-        <BaseFormButton
+        <button
             w:p="x-1"
             w:m="0"
-            w:border="l-1 gray-100"
-            @click="emits('update:modelValue', Number(modelValue) + 1)"
+            w:transition="~"
+            w:border="r-1 gray-100"
+            type="button"
+            @click="emits('update:modelValue', String(Number(modelValue) + 1))"
         >
-            <template #text>
-                <VIcon
-                    icon="mdi:mdi-plus"
-                    size="20"
-                    w:text="gray-500"
-                />
-            </template>
-        </BaseFormButton>
+            <VIcon
+                icon="mdi:mdi-plus"
+                size="20"
+                w:text="gray-500"
+            />
+        </button>
     </div>
 </template>
