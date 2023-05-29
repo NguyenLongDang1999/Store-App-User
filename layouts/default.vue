@@ -7,5 +7,7 @@
 
             <LazyBaseComponentService />
         </VMain>
+
+        <LazyTheFooter />
     </VApp>
 </template>

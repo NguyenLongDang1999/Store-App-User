@@ -69,7 +69,11 @@ export default {
             Content: 'Nhiều phương thức thanh toán đa dạng linh động'
         }
     },
+    Contact: {
+        Information: 'Thông tin liên hệ'
+    },
     ViewMore: 'Xem Thêm',
     Support: 'Hỗ trợ',
-    QuickView: 'Xem nhanh'
+    QuickView: 'Xem nhanh',
+    About: 'Về chúng tôi'
 }
