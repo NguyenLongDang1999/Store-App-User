@@ -6,7 +6,7 @@ import { useDisplay } from 'vuetify'
 
 // ** useHooks
 const { thresholds } = useDisplay()
-const { categoryList } = useCategoryList()
+const { categoryList } = await useCategoryList()
 
 // ** Data
 const swiper = ref<SwiperOptions | null>(null)
@@ -14,6 +14,7 @@ const swiper = ref<SwiperOptions | null>(null)
 
 <template>
     <section
+        v-if="categoryList.length"
         w:m="t-50px"
         w:pos="relative"
     >
@@ -72,23 +73,23 @@ const swiper = ref<SwiperOptions | null>(null)
                         :breakpoints="{
                             [thresholds.xs]: {
                                 slidesPerView: 1.8,
-                                spaceBetween: 30,
+                                spaceBetween: 20,
                             },
                             [thresholds.sm]: {
                                 slidesPerView: 2.5,
-                                spaceBetween: 30,
+                                spaceBetween: 20,
                             },
                             [thresholds.md]: {
                                 slidesPerView: 3,
-                                spaceBetween: 30,
+                                spaceBetween: 20,
                             },
                             [thresholds.lg]: {
                                 slidesPerView: 4,
-                                spaceBetween: 30,
+                                spaceBetween: 20,
                             },
                             [thresholds.xl]: {
                                 slidesPerView: 5,
-                                spaceBetween: 30,
+                                spaceBetween: 20,
                             },
                         }"
                         @swiper="(s) => swiper = s"

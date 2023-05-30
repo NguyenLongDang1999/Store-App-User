@@ -2,6 +2,7 @@
 
 // ** Types Imports
 import type { ICategoryList } from '~/types/category.type'
+import { getImageFile } from '~/utils'
 
 // ** Props & Emits
 interface Props {
@@ -9,18 +10,23 @@ interface Props {
 }
 
 defineProps<Props>()
+
+// ** useHooks
+const { path } = useCategory()
 </script>
 
 <template>
     <NuxtLink
         w:pos="relative"
         class="group"
+        :to="category.slug"
     >
         <NuxtImg
-            src="https://placehold.co/400x600/EEE/31343C"
+            :src="getImageFile(path, category.image_uri)"
             :alt="category.name"
             width="400"
             height="600"
+            w:border="rounded-lg"
         />
 
         <div
